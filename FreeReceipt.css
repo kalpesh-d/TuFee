@@ -39,7 +39,7 @@ body {
 
   body {
     max-width: 100%;
-    padding: 0 40px;
+    /* padding: 0 40px; */
     display: flex;
     flex-direction: column;
     justify-content: space-between;
@@ -262,7 +262,6 @@ td {
 @media screen and (max-width: 768px) {
   body {
     max-width: 100%;
-    padding: 0 15px;
   }
 
   .header {
@@ -304,10 +303,6 @@ td {
 }
 
 @media screen and (max-width: 480px) {
-  body {
-    padding: 0 10px;
-  }
-
   .header {
     gap: 8px;
     margin-bottom: 25px;
