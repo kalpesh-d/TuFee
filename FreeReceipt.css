@@ -22,14 +22,11 @@
 
 body {
   width: 100%;
-  min-width: 320px;
   max-width: 600px;
   margin: 0 auto;
-  min-height: 100vh;
   display: flex;
   flex-direction: column;
   background-color: white;
-  overflow-x: hidden;
 }
 
 @media print {
@@ -72,40 +69,6 @@ body {
     margin-left: -50vw;
     margin-right: -50vw;
     width: 100vw;
-  }
-}
-
-@media screen and (max-width: 480px) {
-  .content-wrapper {
-    padding: 0 10px;
-  }
-
-  .header {
-    flex-direction: column;
-    text-align: center;
-    gap: 10px;
-  }
-
-  .info-group {
-    width: 100%;
-    flex-wrap: wrap;
-  }
-
-  .fee-table th,
-  .fee-table tbody td {
-    padding: 10px;
-    font-size: 12px;
-  }
-
-  .student-info-container {
-    flex-direction: column;
-    align-items: center;
-    text-align: center;
-  }
-
-  .student-photo {
-    margin-right: 0;
-    margin-bottom: 15px;
   }
 }
 
@@ -224,7 +187,6 @@ td {
 .fee-table {
   width: 100%;
   margin: 30px 0;
-  overflow-x: auto;
 }
 
 .fee-table tbody {
@@ -237,7 +199,6 @@ td {
   background: var(--primary-blue);
   color: white;
   padding: 16px 20px;
-  white-space: nowrap;
 }
 
 .fee-table tbody td {
@@ -296,4 +257,96 @@ td {
 .yaxis-color {
   height: 32px;
   background-color: var(--primary-blue);
+}
+
+@media screen and (max-width: 768px) {
+  body {
+    max-width: 100%;
+    padding: 0 15px;
+  }
+
+  .header {
+    gap: 10px;
+    margin-bottom: 30px;
+  }
+
+  .logo {
+    width: 60px;
+    height: 60px;
+  }
+
+  .company-name {
+    font-size: 18px;
+  }
+
+  .company-details {
+    font-size: 12px;
+  }
+
+  .student-info-container {
+    flex-direction: column;
+    gap: 15px;
+  }
+
+  .info-group {
+    width: 100%;
+  }
+
+  .fee-table th,
+  .fee-table tbody td {
+    padding: 12px 15px;
+    font-size: 13px;
+  }
+
+  .signature-section {
+    margin-top: 40px;
+  }
+}
+
+@media screen and (max-width: 480px) {
+  body {
+    padding: 0 10px;
+  }
+
+  .header {
+    gap: 8px;
+    margin-bottom: 25px;
+  }
+
+  .logo {
+    width: 50px;
+    height: 50px;
+  }
+
+  .company-name {
+    font-size: 16px;
+  }
+
+  .receipt-title {
+    font-size: 18px;
+    margin-bottom: 15px;
+  }
+
+  .receipt-no {
+    padding: 10px 15px;
+  }
+
+  .fee-table th,
+  .fee-table tbody td {
+    padding: 10px;
+    font-size: 12px;
+  }
+
+  .total {
+    font-size: 14px;
+    padding: 12px 15px;
+  }
+
+  .signature-img {
+    max-width: 120px;
+  }
+
+  .signature-text {
+    font-size: 14px;
+  }
 }
