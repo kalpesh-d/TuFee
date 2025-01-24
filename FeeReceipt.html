@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Fee Receipt</title>
+    <link rel="stylesheet" href="./FreeReceipt.css" />
+    <style>
+      @import url("https://fonts.googleapis.com/css2?family=Rubik:ital,wght@0,300..900;1,300..900&display=swap");
+    </style>
+  </head>
+  <body>
+    <div class="yaxis-color"></div>
+    <div class="border-top-line"></div>
+    <div class="header">
+      <img class="logo" src="./TuFee.svg" alt="TuFee" />
+      <div class="company-info">
+        <h1 class="company-name">TuFee</h1>
+        <div class="company-details">
+          4140 Parker Rd. Allentown, New Mexico 31134
+        </div>
+        <div class="company-details">(808) 555-0111</div>
+      </div>
+    </div>
+
+    <h2 class="receipt-title">Fee Receipt</h2>
+    <div class="receipt-no">Receipt No.: 0001</div>
+
+    <div class="student-details">
+      <h3>Student Details</h3>
+      <div class="student-info-container">
+        <img src="./student.png" alt="Student Photo" class="student-photo" />
+        <div class="info-row">
+          <div class="info-group">
+            <span class="label">Name :</span>
+            <span class="value">Emma Grace</span>
+          </div>
+          <div class="info-group">
+            <span class="label">Roll No.:</span>
+            <span class="value">12</span>
+          </div>
+        </div>
+        <div class="info-row">
+          <div class="info-group">
+            <span class="label">Father Name:</span>
+            <span class="value">1 Jun to 1 Aug</span>
+          </div>
+          <div class="info-group">
+            <span class="label">Phone 1:</span>
+            <span class="value">(505) 555-0125</span>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <table class="fee-table">
+      <thead>
+        <tr>
+          <th>Fee Header</th>
+          <th>Amount</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>9th Class 2024-25</td>
+          <td>₹25,000</td>
+        </tr>
+      </tbody>
+      <tfoot>
+        <tr>
+          <td class="total" colspan="2">Total Amount ₹25,000</td>
+        </tr>
+      </tfoot>
+    </table>
+
+    <div class="signature-section">
+      <img src="./sign.svg" alt="Digital Signature" class="signature-img" />
+      <p class="signature-text">Signature</p>
+    </div>
+
+    <div class="border-line"></div>
+    <p class="date-time">20/02/2024 • 15:20</p>
+    <div class="yaxis-color"></div>
+  </body>
+</html>
