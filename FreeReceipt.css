@@ -4,10 +4,45 @@
   box-sizing: border-box;
   font-family: rubik, sans-serif;
 }
+
+@page {
+  size: A4;
+  margin: 0;
+}
+
 body {
+  width: 100%;
   max-width: 600px;
   margin: 0 auto;
+  background-color: white;
 }
+
+@media print {
+  body {
+    max-width: 100%;
+    margin: 0;
+    padding: 0 40px;
+    min-height: 100vh;
+    -webkit-print-color-adjust: exact;
+    print-color-adjust: exact;
+  }
+
+  .yaxis-color {
+    -webkit-print-color-adjust: exact;
+    print-color-adjust: exact;
+  }
+
+  .receipt-no {
+    -webkit-print-color-adjust: exact;
+    print-color-adjust: exact;
+  }
+
+  .fee-table th {
+    -webkit-print-color-adjust: exact;
+    print-color-adjust: exact;
+  }
+}
+
 .header {
   display: flex;
   align-items: center;
