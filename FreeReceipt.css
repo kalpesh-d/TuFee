@@ -22,12 +22,14 @@
 
 body {
   width: 100%;
+  min-width: 320px;
   max-width: 600px;
   margin: 0 auto;
   min-height: 100vh;
   display: flex;
   flex-direction: column;
   background-color: white;
+  overflow-x: hidden;
 }
 
 @media print {
@@ -70,6 +72,40 @@ body {
     margin-left: -50vw;
     margin-right: -50vw;
     width: 100vw;
+  }
+}
+
+@media screen and (max-width: 480px) {
+  .content-wrapper {
+    padding: 0 10px;
+  }
+
+  .header {
+    flex-direction: column;
+    text-align: center;
+    gap: 10px;
+  }
+
+  .info-group {
+    width: 100%;
+    flex-wrap: wrap;
+  }
+
+  .fee-table th,
+  .fee-table tbody td {
+    padding: 10px;
+    font-size: 12px;
+  }
+
+  .student-info-container {
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+  }
+
+  .student-photo {
+    margin-right: 0;
+    margin-bottom: 15px;
   }
 }
 
@@ -164,7 +200,7 @@ body {
 .info-group {
   display: flex;
   gap: 5px;
-  min-width: 300px;
+  width: 300px;
 }
 
 .label {
@@ -188,6 +224,7 @@ td {
 .fee-table {
   width: 100%;
   margin: 30px 0;
+  overflow-x: auto;
 }
 
 .fee-table tbody {
@@ -200,6 +237,7 @@ td {
   background: var(--primary-blue);
   color: white;
   padding: 16px 20px;
+  white-space: nowrap;
 }
 
 .fee-table tbody td {
