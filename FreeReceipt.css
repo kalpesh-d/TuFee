@@ -14,20 +14,45 @@ body {
   width: 100%;
   max-width: 600px;
   margin: 0 auto;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
   background-color: white;
 }
 
 @media print {
+  html,
+  body {
+    height: 100vh;
+    margin: 0;
+    padding: 0;
+  }
+
   body {
     max-width: 100%;
-    margin: 0;
     padding: 0 40px;
-    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
     -webkit-print-color-adjust: exact;
     print-color-adjust: exact;
   }
 
+  .content-wrapper {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    padding: 40px 0;
+  }
+
   .yaxis-color {
+    position: relative;
+    left: 50%;
+    right: 50%;
+    margin-left: -50vw;
+    margin-right: -50vw;
+    width: 100vw;
     -webkit-print-color-adjust: exact;
     print-color-adjust: exact;
   }
@@ -41,6 +66,10 @@ body {
     -webkit-print-color-adjust: exact;
     print-color-adjust: exact;
   }
+}
+
+.content-wrapper {
+  padding: 0 20px;
 }
 
 .header {
