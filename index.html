@@ -40,7 +40,6 @@
         width: 210mm;
       }
       .company-name,
-      .receipt-title,
       .student-details h3,
       .signature-text,
       .label,
@@ -48,14 +47,6 @@
       .fee-table th,
       .total {
         font-weight: 500;
-      }
-      .company-name,
-      .receipt-title {
-        font-size: 2rem;
-      }
-      .receipt-title {
-        color: var(--g);
-        margin: 0 0 1rem;
       }
       .company-details,
       .value,
@@ -69,9 +60,6 @@
       .value,
       .fee-table td {
         color: var(--g);
-      }
-      .company-details {
-        line-height: 1.5;
       }
       .receipt-no,
       .fee-table th,
@@ -87,16 +75,6 @@
       .fee-table th {
         color: #fff;
       }
-      .student-details h3 {
-        color: var(--d);
-        font-size: 1.2rem;
-        margin-bottom: 1.5rem;
-      }
-      .info-row {
-        display: flex;
-        flex-direction: column;
-        justify-content: space-evenly;
-      }
       .label {
         color: var(--d);
       }
@@ -104,10 +82,6 @@
         padding: 1.5rem 2rem;
         text-align: center;
         border: 2px solid var(--br);
-      }
-      .border-top-line,
-      .border-line {
-        border-bottom: 1px solid var(--o);
       }
     </style>
   </head>
@@ -123,7 +97,10 @@
         padding: 0 40px;
       "
     >
-      <div class="border-top-line" style="margin: 2rem 0"></div>
+      <div
+        class="border-top-line"
+        style="margin: 2rem 0; border-bottom: 1px solid var(--o)"
+      ></div>
       <div
         class="header"
         style="
@@ -135,38 +112,58 @@
       >
         <img
           class="logo"
-          src="./TuFee.svg"
+          src="https://firebasestorage.googleapis.com/v0/b/tufeelive-new.appspot.com/o/6696%2Flogo_online.png?alt=media&token=690d2cf4-190a-4e4d-809d-d5b3edc75184"
           alt="TuFee"
           style="width: 5.8rem; height: 5.8rem; border: 2px solid #f2cc1f"
         />
         <div class="company-info" style="flex: 1">
-          <h1 class="company-name" style="color: var(--d); margin-bottom: 8px">
+          <h1
+            class="company-name"
+            style="color: var(--d); margin-bottom: 8px; font-size: 2rem"
+          >
             TuFee
           </h1>
-          <div class="company-details">
+          <div class="company-details" style="line-height: 1.5">
             4140 Parker Rd. Allentown, New Mexico 31134
           </div>
-          <div class="company-details">(808) 555-0111</div>
+          <div class="company-details" style="line-height: 1.5">
+            (808) 555-0111
+          </div>
         </div>
       </div>
 
-      <h2 class="receipt-title">Fee Receipt</h2>
+      <h2
+        style="
+          font-size: 2rem;
+          color: var(--g);
+          margin: 0 0 1rem;
+          font-weight: 500;
+        "
+      >
+        Fee Receipt
+      </h2>
       <div
         class="receipt-no"
         style="
           padding: 1rem 2rem;
           border-top: 2px solid var(--d);
           margin-bottom: 30px;
+          display: flex;
+          flex-direction: row;
+          justify-content: space-between;
         "
       >
-        Receipt No.: 0001
+        <span style="font-weight: 500">Receipt No.: 0001</span>
+        <span style="font-weight: 500">Date: 25/01/2025</span>
       </div>
 
       <div class="student-details" style="margin: 30px 0">
-        <h3>Student Details</h3>
+        <h3 style="color: var(--d); font-size: 1.2rem; margin-bottom: 1.5rem">
+          Student Details
+        </h3>
         <div class="student-info-container" style="display: flex; gap: 15px">
           <img
-            src="./student.png"
+            src="https://firebasestorage.googleapis.com/v0/b/tufeelive-new.appspot.com/o/10044%2FStudentImage%2F1701174272172?alt=media&token=aeb11cb4-00c4-419e-9d69-8e2ebb748ee3"
             alt="Student Photo"
             class="student-photo"
             style="
@@ -185,7 +182,13 @@
               justify-content: space-between;
             "
           >
-            <div class="info-row">
+            <div
+              style="
+                display: flex;
+                flex-direction: column;
+                justify-content: space-evenly;
+              "
+            >
               <div class="info-group">
                 <span class="label">Name :</span>
                 <span class="value">Emma Grace</span>
@@ -195,7 +198,13 @@
                 <span class="value">12</span>
               </div>
             </div>
-            <div class="info-row">
+            <div
+              style="
+                display: flex;
+                flex-direction: column;
+                justify-content: space-evenly;
+              "
+            >
               <div class="info-group">
                 <span class="label">Father Name:</span>
                 <span class="value">1 Jun to 1 Aug</span>
@@ -246,26 +255,43 @@
           </tr>
         </tfoot>
       </table>
-
       <div
-        class="signature-section"
-        style="text-align: right; margin-top: 2rem"
+        style="
+          display: flex;
+          flex-direction: row;
+          justify-content: space-between;
+        "
       >
-        <img
-          src="./sign.svg"
-          alt="Digital Signature"
-          class="signature-img"
-          style="height: 3rem; margin-bottom: 0.5rem"
-        />
-        <p
-          class="signature-text"
-          style="font-size: 1.5rem; color: var(--d); margin-bottom: 1rem"
+        <div style="font-size: 0.9rem; color: var(--g)">
+          <p style="margin-bottom: 0.5rem">
+            <span style="font-weight: 500">Remark:</span>
+            Received Admission Fee
+          </p>
+          <p><span style="font-weight: 500">Payment Mode:</span> UPI</p>
+        </div>
+        <div
+          class="signature-section"
+          style="text-align: right; margin-top: 2rem"
         >
-          Signature
-        </p>
+          <img
+            src="https://firebasestorage.googleapis.com/v0/b/tufeelive-new.appspot.com/o/6696%2Fsignature.png?alt=media&token=38dd6658-4a46-4e05-851c-4a6ae0858435"
+            alt="Digital Signature"
+            class="signature-img"
+            style="height: 3rem; margin-bottom: 0.5rem; margin-right: 1rem"
+          />
+          <p
+            class="signature-text"
+            style="font-size: 1.5rem; color: var(--d); margin-bottom: 1rem"
+          >
+            Signature
+          </p>
+        </div>
       </div>
 
-      <div class="border-line" style="margin-top: 1rem 0"></div>
+      <div
+        class="border-line"
+        style="margin-top: 1rem 0; border-bottom: 1px solid var(--o)"
+      ></div>
       <p
         class="date-time"
         style="color: var(--g); font-size: 0.8rem; margin: 1rem 0"
