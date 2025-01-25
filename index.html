@@ -13,7 +13,7 @@
         --g: #6a7898;
         --l: #64748b;
         --br: #f0f0f0;
-        --bg: #f8f8f8;
+        --bg: #eef0f3;
       }
       * {
         margin: 0;
@@ -35,17 +35,17 @@
         print-color-adjust: exact !important;
       }
       body {
-        width: 210mm;
         margin: 0 auto;
         display: flex;
         flex-direction: column;
+        width: 210mm;
       }
       .content-wrapper {
         flex: 1;
         display: flex;
         flex-direction: column;
         justify-content: space-between;
-        padding: 40px 20px;
+        padding: 0 40px;
       }
       .header {
         display: flex;
@@ -54,8 +54,9 @@
         margin-bottom: 40px;
       }
       .logo {
-        width: 70px;
-        height: 70px;
+        width: 5.8rem;
+        height: 5.8rem;
+        border: 2px solid #f2cc1f;
       }
       .company-info {
         flex: 1;
@@ -72,7 +73,7 @@
       }
       .company-name,
       .receipt-title {
-        font-size: 20px;
+        font-size: 2rem;
       }
       .company-name {
         color: var(--d);
@@ -80,7 +81,7 @@
       }
       .receipt-title {
         color: var(--g);
-        margin: 0 0 20px;
+        margin: 0 0 1rem;
       }
       .company-details,
       .value,
@@ -88,7 +89,7 @@
       .label,
       .receipt-no,
       .fee-table th {
-        font-size: 14px;
+        font-size: 1.2rem;
       }
       .company-details,
       .value,
@@ -105,12 +106,15 @@
         -webkit-print-color-adjust: exact !important;
         print-color-adjust: exact !important;
       }
+      .fee-table th {
+        padding: 1.3rem 2rem;
+      }
       .receipt-no,
       .fee-table th {
         color: #fff;
-        padding: 12px 20px;
       }
       .receipt-no {
+        padding: 1rem 2rem;
         border-top: 2px solid var(--d);
         margin-bottom: 30px;
       }
@@ -119,17 +123,16 @@
       }
       .student-details h3 {
         color: var(--d);
-        font-size: 16px;
-        margin-bottom: 20px;
+        font-size: 1.2rem;
+        margin-bottom: 1.5rem;
       }
-      .student-info-container,
-      .info-group {
+      .student-info-container {
         display: flex;
         gap: 15px;
       }
       .student-photo {
-        width: 60px;
-        height: 60px;
+        width: 6rem;
+        height: 6rem;
         border-radius: 50%;
         object-fit: cover;
       }
@@ -138,10 +141,11 @@
         flex-direction: column;
         justify-content: space-evenly;
       }
-      .info-group {
-        width: 300px;
-        margin-bottom: 10px;
-        gap: 5px;
+      .info {
+        width: 100%;
+        display: flex;
+        flex-direction: row;
+        justify-content: space-between;
       }
       .label {
         color: var(--d);
@@ -152,50 +156,50 @@
         border-collapse: collapse;
       }
       .fee-table td {
-        padding: 16px 20px;
+        padding: 1.5rem 2rem;
         text-align: center;
         border: 2px solid var(--br);
       }
       .total {
         text-align: center;
-        font-size: 16px;
-        color: var(--d);
+        font-size: 1rem;
+        color: var(--d) !important;
         background: var(--bg) !important;
-        padding: 16px 20px;
-        margin: 30px 0;
+        padding: 1.5rem;
+        margin: 1.5rem 0;
         -webkit-print-color-adjust: exact !important;
         print-color-adjust: exact !important;
       }
       .signature-section {
         text-align: right;
-        margin-top: 60px;
+        margin-top: 4rem;
       }
       .signature-img {
-        max-width: 150px;
-        margin-bottom: 10px;
+        height: 3rem;
+        margin-bottom: 0.5rem;
       }
       .signature-text {
-        font-size: 16px;
+        font-size: 1.5rem;
         color: var(--d);
-        margin-bottom: 20px;
+        margin-bottom: 1rem;
       }
       .date-time {
         color: var(--g);
-        font-size: 10px;
-        margin-bottom: 10px;
+        font-size: 0.8rem;
+        margin: 1rem 0;
       }
       .border-top-line,
       .border-line {
         border-bottom: 1px solid var(--o);
       }
       .border-top-line {
-        margin: 30px 0;
+        margin: 2rem 0;
       }
       .border-line {
-        margin: 10px 0;
+        margin-top: 1rem 0;
       }
       .yaxis-color {
-        height: 32px;
+        padding: 1.5rem;
       }
     </style>
   </head>
@@ -221,24 +225,26 @@
         <h3>Student Details</h3>
         <div class="student-info-container">
           <img src="./student.png" alt="Student Photo" class="student-photo" />
-          <div class="info-row">
-            <div class="info-group">
-              <span class="label">Name :</span>
-              <span class="value">Emma Grace</span>
+          <div class="info">
+            <div class="info-row">
+              <div class="info-group">
+                <span class="label">Name :</span>
+                <span class="value">Emma Grace</span>
+              </div>
+              <div class="info-group">
+                <span class="label">Roll No.:</span>
+                <span class="value">12</span>
+              </div>
             </div>
-            <div class="info-group">
-              <span class="label">Roll No.:</span>
-              <span class="value">12</span>
-            </div>
-          </div>
-          <div class="info-row">
-            <div class="info-group">
-              <span class="label">Father Name:</span>
-              <span class="value">1 Jun to 1 Aug</span>
-            </div>
-            <div class="info-group">
-              <span class="label">Phone 1:</span>
-              <span class="value">(505) 555-0125</span>
+            <div class="info-row">
+              <div class="info-group">
+                <span class="label">Father Name:</span>
+                <span class="value">1 Jun to 1 Aug</span>
+              </div>
+              <div class="info-group">
+                <span class="label">Phone 1:</span>
+                <span class="value">(505) 555-0125</span>
+              </div>
             </div>
           </div>
         </div>
