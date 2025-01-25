@@ -28,7 +28,6 @@
       html,
       body {
         height: 100vh;
-        margin: 0;
         padding: 0;
         background: #fff;
         -webkit-print-color-adjust: exact !important;
@@ -39,27 +38,6 @@
         display: flex;
         flex-direction: column;
         width: 210mm;
-      }
-      .content-wrapper {
-        flex: 1;
-        display: flex;
-        flex-direction: column;
-        justify-content: space-between;
-        padding: 0 40px;
-      }
-      .header {
-        display: flex;
-        align-items: center;
-        gap: 15px;
-        margin-bottom: 40px;
-      }
-      .logo {
-        width: 5.8rem;
-        height: 5.8rem;
-        border: 2px solid #f2cc1f;
-      }
-      .company-info {
-        flex: 1;
       }
       .company-name,
       .receipt-title,
@@ -74,10 +52,6 @@
       .company-name,
       .receipt-title {
         font-size: 2rem;
-      }
-      .company-name {
-        color: var(--d);
-        margin-bottom: 8px;
       }
       .receipt-title {
         color: var(--g);
@@ -113,104 +87,62 @@
       .fee-table th {
         color: #fff;
       }
-      .receipt-no {
-        padding: 1rem 2rem;
-        border-top: 2px solid var(--d);
-        margin-bottom: 30px;
-      }
-      .student-details {
-        margin: 30px 0;
-      }
       .student-details h3 {
         color: var(--d);
         font-size: 1.2rem;
         margin-bottom: 1.5rem;
-      }
-      .student-info-container {
-        display: flex;
-        gap: 15px;
-      }
-      .student-photo {
-        width: 6rem;
-        height: 6rem;
-        border-radius: 50%;
-        object-fit: cover;
       }
       .info-row {
         display: flex;
         flex-direction: column;
         justify-content: space-evenly;
       }
-      .info {
-        width: 100%;
-        display: flex;
-        flex-direction: row;
-        justify-content: space-between;
-      }
       .label {
         color: var(--d);
-      }
-      .fee-table {
-        width: 100%;
-        margin: 30px 0;
-        border-collapse: collapse;
       }
       .fee-table td {
         padding: 1.5rem 2rem;
         text-align: center;
         border: 2px solid var(--br);
       }
-      .total {
-        text-align: center;
-        font-size: 1rem;
-        color: var(--d) !important;
-        background: var(--bg) !important;
-        padding: 1.5rem;
-        margin: 1.5rem 0;
-        -webkit-print-color-adjust: exact !important;
-        print-color-adjust: exact !important;
-      }
-      .signature-section {
-        text-align: right;
-        margin-top: 4rem;
-      }
-      .signature-img {
-        height: 3rem;
-        margin-bottom: 0.5rem;
-      }
-      .signature-text {
-        font-size: 1.5rem;
-        color: var(--d);
-        margin-bottom: 1rem;
-      }
-      .date-time {
-        color: var(--g);
-        font-size: 0.8rem;
-        margin: 1rem 0;
-      }
       .border-top-line,
       .border-line {
         border-bottom: 1px solid var(--o);
       }
-      .border-top-line {
-        margin: 2rem 0;
-      }
-      .border-line {
-        margin-top: 1rem 0;
-      }
-      .yaxis-color {
-        padding: 1.5rem;
-      }
     </style>
   </head>
   <body>
-    <div class="yaxis-color"></div>
-    <div class="content-wrapper">
-      <div class="border-top-line"></div>
-      <div class="header">
-        <img class="logo" src="./TuFee.svg" alt="TuFee" />
-        <div class="company-info">
-          <h1 class="company-name">TuFee</h1>
+    <div class="yaxis-color" style="padding: 1.5rem"></div>
+    <div
+      class="content-wrapper"
+      style="
+        flex: 1;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+        padding: 0 40px;
+      "
+    >
+      <div class="border-top-line" style="margin: 2rem 0"></div>
+      <div
+        class="header"
+        style="
+          display: flex;
+          align-items: center;
+          gap: 15px;
+          margin-bottom: 40px;
+        "
+      >
+        <img
+          class="logo"
+          src="./TuFee.svg"
+          alt="TuFee"
+          style="width: 5.8rem; height: 5.8rem; border: 2px solid #f2cc1f"
+        />
+        <div class="company-info" style="flex: 1">
+          <h1 class="company-name" style="color: var(--d); margin-bottom: 8px">
+            TuFee
+          </h1>
           <div class="company-details">
             4140 Parker Rd. Allentown, New Mexico 31134
           </div>
@@ -219,13 +151,40 @@
       </div>
 
       <h2 class="receipt-title">Fee Receipt</h2>
-      <div class="receipt-no">Receipt No.: 0001</div>
+      <div
+        class="receipt-no"
+        style="
+          padding: 1rem 2rem;
+          border-top: 2px solid var(--d);
+          margin-bottom: 30px;
+        "
+      >
+        Receipt No.: 0001
+      </div>
 
-      <div class="student-details">
+      <div class="student-details" style="margin: 30px 0">
         <h3>Student Details</h3>
-        <div class="student-info-container">
-          <img src="./student.png" alt="Student Photo" class="student-photo" />
-          <div class="info">
+        <div class="student-info-container" style="display: flex; gap: 15px">
+          <img
+            src="./student.png"
+            alt="Student Photo"
+            class="student-photo"
+            style="
+              width: 6rem;
+              height: 6rem;
+              border-radius: 50%;
+              object-fit: cover;
+            "
+          />
+          <div
+            class="info"
+            style="
+              width: 100%;
+              display: flex;
+              flex-direction: row;
+              justify-content: space-between;
+            "
+          >
             <div class="info-row">
               <div class="info-group">
                 <span class="label">Name :</span>
@@ -250,7 +209,10 @@
         </div>
       </div>
 
-      <table class="fee-table">
+      <table
+        class="fee-table"
+        style="width: 100%; margin: 30px 0; border-collapse: collapse"
+      >
         <thead>
           <tr>
             <th>Fee Header</th>
@@ -265,19 +227,52 @@
         </tbody>
         <tfoot>
           <tr>
-            <td class="total" colspan="2">Total Amount ₹25,000</td>
+            <td
+              class="total"
+              colspan="2"
+              style="
+                text-align: center;
+                font-size: 1rem;
+                color: var(--d) !important;
+                background: var(--bg) !important;
+                padding: 1.5rem;
+                margin: 1.5rem 0;
+                -webkit-print-color-adjust: exact !important;
+                print-color-adjust: exact !important;
+              "
+            >
+              Total Amount ₹25,000
+            </td>
           </tr>
         </tfoot>
       </table>
 
-      <div class="signature-section">
-        <img src="./sign.svg" alt="Digital Signature" class="signature-img" />
-        <p class="signature-text">Signature</p>
+      <div
+        class="signature-section"
+        style="text-align: right; margin-top: 2rem"
+      >
+        <img
+          src="./sign.svg"
+          alt="Digital Signature"
+          class="signature-img"
+          style="height: 3rem; margin-bottom: 0.5rem"
+        />
+        <p
+          class="signature-text"
+          style="font-size: 1.5rem; color: var(--d); margin-bottom: 1rem"
+        >
+          Signature
+        </p>
       </div>
 
-      <div class="border-line"></div>
-      <p class="date-time">20/02/2024 • 15:20</p>
+      <div class="border-line" style="margin-top: 1rem 0"></div>
+      <p
+        class="date-time"
+        style="color: var(--g); font-size: 0.8rem; margin: 1rem 0"
+      >
+        20/02/2024 • 15:20
+      </p>
     </div>
-    <div class="yaxis-color"></div>
+    <div class="yaxis-color" style="padding: 1.5rem"></div>
   </body>
 </html>
