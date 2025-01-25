@@ -4,9 +4,199 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Fee Receipt</title>
-    <link rel="stylesheet" href="./FreeReceipt.css" />
     <style>
       @import url("https://fonts.googleapis.com/css2?family=Rubik:ital,wght@0,300..900;1,300..900&display=swap");
+      :root {
+        --b: #3692fc;
+        --o: #fca036;
+        --d: #263449;
+        --g: #6a7898;
+        --l: #64748b;
+        --br: #f0f0f0;
+        --bg: #f8f8f8;
+      }
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+        font-family: rubik, sans-serif;
+      }
+      @page {
+        size: A4;
+        margin: 0;
+      }
+      html,
+      body {
+        height: 100vh;
+        margin: 0;
+        padding: 0;
+        background: #fff;
+        -webkit-print-color-adjust: exact !important;
+        print-color-adjust: exact !important;
+      }
+      body {
+        width: 210mm;
+        margin: 0 auto;
+        display: flex;
+        flex-direction: column;
+      }
+      .content-wrapper {
+        flex: 1;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+        padding: 40px 20px;
+      }
+      .header {
+        display: flex;
+        align-items: center;
+        gap: 15px;
+        margin-bottom: 40px;
+      }
+      .logo {
+        width: 70px;
+        height: 70px;
+      }
+      .company-info {
+        flex: 1;
+      }
+      .company-name,
+      .receipt-title,
+      .student-details h3,
+      .signature-text,
+      .label,
+      .receipt-no,
+      .fee-table th,
+      .total {
+        font-weight: 500;
+      }
+      .company-name,
+      .receipt-title {
+        font-size: 20px;
+      }
+      .company-name {
+        color: var(--d);
+        margin-bottom: 8px;
+      }
+      .receipt-title {
+        color: var(--g);
+        margin: 0 0 20px;
+      }
+      .company-details,
+      .value,
+      .fee-table td,
+      .label,
+      .receipt-no,
+      .fee-table th {
+        font-size: 14px;
+      }
+      .company-details,
+      .value,
+      .fee-table td {
+        color: var(--g);
+      }
+      .company-details {
+        line-height: 1.5;
+      }
+      .receipt-no,
+      .fee-table th,
+      .yaxis-color {
+        background: var(--b) !important;
+        -webkit-print-color-adjust: exact !important;
+        print-color-adjust: exact !important;
+      }
+      .receipt-no,
+      .fee-table th {
+        color: #fff;
+        padding: 12px 20px;
+      }
+      .receipt-no {
+        border-top: 2px solid var(--d);
+        margin-bottom: 30px;
+      }
+      .student-details {
+        margin: 30px 0;
+      }
+      .student-details h3 {
+        color: var(--d);
+        font-size: 16px;
+        margin-bottom: 20px;
+      }
+      .student-info-container,
+      .info-group {
+        display: flex;
+        gap: 15px;
+      }
+      .student-photo {
+        width: 60px;
+        height: 60px;
+        border-radius: 50%;
+        object-fit: cover;
+      }
+      .info-row {
+        display: flex;
+        flex-direction: column;
+        justify-content: space-evenly;
+      }
+      .info-group {
+        width: 300px;
+        margin-bottom: 10px;
+        gap: 5px;
+      }
+      .label {
+        color: var(--d);
+      }
+      .fee-table {
+        width: 100%;
+        margin: 30px 0;
+        border-collapse: collapse;
+      }
+      .fee-table td {
+        padding: 16px 20px;
+        text-align: center;
+        border: 2px solid var(--br);
+      }
+      .total {
+        text-align: center;
+        font-size: 16px;
+        color: var(--d);
+        background: var(--bg) !important;
+        padding: 16px 20px;
+        margin: 30px 0;
+        -webkit-print-color-adjust: exact !important;
+        print-color-adjust: exact !important;
+      }
+      .signature-section {
+        text-align: right;
+        margin-top: 60px;
+      }
+      .signature-img {
+        max-width: 150px;
+        margin-bottom: 10px;
+      }
+      .signature-text {
+        font-size: 16px;
+        color: var(--d);
+        margin-bottom: 20px;
+      }
+      .date-time {
+        color: var(--g);
+        font-size: 10px;
+        margin-bottom: 10px;
+      }
+      .border-top-line,
+      .border-line {
+        border-bottom: 1px solid var(--o);
+      }
+      .border-top-line {
+        margin: 30px 0;
+      }
+      .border-line {
+        margin: 10px 0;
+      }
+      .yaxis-color {
+        height: 32px;
+      }
     </style>
   </head>
   <body>
