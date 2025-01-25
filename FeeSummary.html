@@ -1,0 +1,412 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Fee Summary</title>
+    <style>
+      @import url("https://fonts.googleapis.com/css2?family=Rubik:ital,wght@0,300..900;1,300..900&display=swap");
+      :root {
+        --b: #3692fc;
+        --o: #fca036;
+        --d: #263449;
+        --g: #6a7898;
+        --l: #64748b;
+        --br: #f0f0f0;
+        --bg: #eef0f3;
+      }
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+        font-family: rubik, sans-serif;
+      }
+      @page {
+        size: A4;
+        margin: 0;
+      }
+      html,
+      body {
+        min-height: 100vh;
+        padding: 0;
+        background: #fff;
+        -webkit-print-color-adjust: exact !important;
+        print-color-adjust: exact !important;
+      }
+      body {
+        margin: 0 auto;
+        display: flex;
+        flex-direction: column;
+        width: 210mm;
+      }
+      .company-name,
+      .student-details h3,
+      .signature-text,
+      .label,
+      .fee-no,
+      .fee-table th,
+      .total {
+        font-weight: 500;
+      }
+      .company-details,
+      .value,
+      .label,
+      .fee-no,
+      .fee-table th {
+        font-size: 1.2rem;
+      }
+      .company-details,
+      .value,
+      .fee-table td {
+        color: var(--g);
+      }
+      .fee-no,
+      .fee-table th,
+      .yaxis-color {
+        background: var(--b) !important;
+        -webkit-print-color-adjust: exact !important;
+        print-color-adjust: exact !important;
+      }
+      .fee-table th {
+        padding: 0.8rem 1rem;
+        border: 2px solid #fff;
+      }
+      .fee-no,
+      .fee-table th {
+        color: #fff;
+      }
+      .label {
+        color: var(--d);
+      }
+      .fee-table td:not(:empty):not(.total) {
+        padding: 1rem;
+        text-align: center;
+        border: 2px solid var(--br);
+      }
+      @media print {
+        body {
+          width: 100%;
+          margin: 0;
+          padding: 0;
+        }
+        .page-break {
+          page-break-before: always;
+        }
+        .fee-table {
+          page-break-inside: auto;
+          border-collapse: collapse;
+          width: 100%;
+        }
+        .fee-table tr {
+          page-break-inside: avoid;
+          page-break-after: auto;
+        }
+        .fee-table thead {
+          display: table-header-group;
+          break-inside: avoid;
+        }
+        .fee-table tfoot {
+          display: table-footer-group;
+        }
+        .fee-table th {
+          background-color: var(--b) !important;
+          color: white !important;
+          -webkit-print-color-adjust: exact !important;
+          print-color-adjust: exact !important;
+        }
+        .content-wrapper {
+          break-inside: auto;
+        }
+        .student-details,
+        .signature-section {
+          break-inside: avoid;
+        }
+        .total-fees {
+          break-inside: avoid;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <div class="yaxis-color" style="padding: 1.5rem"></div>
+    <div
+      class="content-wrapper"
+      style="
+        flex: 1;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+        padding: 0 40px;
+      "
+    >
+      <div
+        class="border-top-line"
+        style="margin: 2rem 0; border-bottom: 1px solid var(--o)"
+      ></div>
+      <div
+        class="header"
+        style="
+          display: flex;
+          align-items: center;
+          gap: 15px;
+          margin-bottom: 40px;
+        "
+      >
+        <img
+          class="logo"
+          src="https://firebasestorage.googleapis.com/v0/b/tufeelive-new.appspot.com/o/6696%2Flogo_online.png?alt=media&token=690d2cf4-190a-4e4d-809d-d5b3edc75184"
+          alt="TuFee"
+          style="width: 5.8rem; height: 5.8rem; border: 2px solid #f2cc1f"
+        />
+        <div class="company-info" style="flex: 1">
+          <h1
+            class="company-name"
+            style="color: var(--d); margin-bottom: 8px; font-size: 2rem"
+          >
+            TuFee
+          </h1>
+          <div class="company-details" style="line-height: 1.5">
+            4140 Parker Rd. Allentown, New Mexico 31134
+          </div>
+          <div class="company-details" style="line-height: 1.5">
+            (808) 555-0111
+          </div>
+        </div>
+      </div>
+
+      <h2
+        style="
+          font-size: 2rem;
+          color: var(--g);
+          margin: 0 0 1rem;
+          font-weight: 500;
+        "
+      >
+        Fee Summary
+      </h2>
+      <div
+        class="fee-no"
+        style="
+          padding: 1.5rem;
+          border-top: 2px solid var(--d);
+          display: flex;
+          flex-direction: row;
+          justify-content: space-between;
+        "
+      ></div>
+
+      <div class="student-details" style="margin: 3rem 0">
+        <div class="student-info-container" style="display: flex; gap: 15px">
+          <img
+            src="https://firebasestorage.googleapis.com/v0/b/tufeelive-new.appspot.com/o/10044%2FStudentImage%2F1701174272172?alt=media&token=aeb11cb4-00c4-419e-9d69-8e2ebb748ee3"
+            alt="Student Photo"
+            class="student-photo"
+            style="
+              width: 6rem;
+              height: 6rem;
+              border-radius: 50%;
+              object-fit: cover;
+            "
+          />
+          <div
+            class="info"
+            style="
+              width: 100%;
+              display: flex;
+              flex-direction: row;
+              justify-content: space-between;
+            "
+          >
+            <div
+              style="
+                display: flex;
+                flex-direction: column;
+                justify-content: space-evenly;
+              "
+            >
+              <div class="info-group">
+                <span class="label">Name :</span>
+                <span class="value">Emma Grace</span>
+              </div>
+              <div class="info-group">
+                <span class="label">Roll No :</span>
+                <span class="value">12</span>
+              </div>
+            </div>
+            <div
+              style="
+                display: flex;
+                flex-direction: column;
+                justify-content: space-evenly;
+              "
+            >
+              <div class="info-group">
+                <span class="label">Father Name :</span>
+                <span class="value">Brooklyn Simmons</span>
+              </div>
+              <div class="info-group">
+                <span class="label">Phone 1 :</span>
+                <span class="value">(505) 555-0125</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <h3
+        style="
+          color: var(--d);
+          font-size: 1.1rem;
+          margin-bottom: 1rem;
+          font-weight: 500;
+        "
+      >
+        Monthly Fee Summary
+      </h3>
+      <table
+        class="fee-table"
+        style="width: 100%; border-collapse: collapse; text-wrap: nowrap"
+      >
+        <thead>
+          <tr>
+            <th colspan="2" style="width: calc(100% - 20px - 20px)">Batch</th>
+            <th>Month</th>
+            <th>Total Fee</th>
+            <th>Paid</th>
+            <th>Pending</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td colspan="2" style="width: calc(100% - 20px - 20px)">
+              9th Class 2024-25
+            </td>
+            <td>Jan</td>
+            <td>₹1,000</td>
+            <td>₹1,000</td>
+            <td>₹0</td>
+          </tr>
+          <tr>
+            <td colspan="2" style="width: calc(100% - 20px - 20px)">
+              Below 4th
+            </td>
+            <td>Mar</td>
+            <td>₹250</td>
+            <td>₹0</td>
+            <td>₹250</td>
+          </tr>
+        </tbody>
+      </table>
+      <div
+        class="total-fees"
+        style="
+          margin: 1.5rem 0;
+          display: flex;
+          flex-direction: column;
+          gap: 0.8rem;
+        "
+      >
+        <p style="color: var(--g)">
+          Total Monthly Fees Paid:
+          <span style="font-weight: 500; color: var(--d)">₹1,000</span>
+        </p>
+        <p style="color: var(--g)">
+          Total Monthly Fees Pending:
+          <span style="font-weight: 500; color: var(--d)">₹250</span>
+        </p>
+      </div>
+      <h3
+        style="
+          color: var(--d);
+          font-size: 1.1rem;
+          margin-top: 1rem;
+          font-weight: 500;
+        "
+      >
+        Installment-Wise Fees Summary
+      </h3>
+      <table
+        class="fee-table"
+        style="
+          width: 100%;
+          border-collapse: collapse;
+          margin-top: 1rem;
+          text-wrap: nowrap;
+        "
+      >
+        <thead>
+          <tr>
+            <th colspan="2" style="width: calc(100% - 20px - 20px)">Batch</th>
+            <th>Installment No.</th>
+            <th>Due Date</th>
+            <th>Amnt. Due</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td colspan="2" style="width: calc(100% - 20px - 20px)">
+              9th Class 2024-25
+            </td>
+            <td>3</td>
+            <td>29 Feb</td>
+            <td>₹1,000</td>
+          </tr>
+          <tr>
+            <td colspan="2" style="width: calc(100% - 20px - 20px)">
+              Below 4th
+            </td>
+            <td>2</td>
+            <td>1 Mar</td>
+            <td>₹1,000</td>
+          </tr>
+        </tbody>
+      </table>
+      <div
+        class="total-fees"
+        style="
+          margin: 1.5rem 0;
+          display: flex;
+          flex-direction: column;
+          gap: 0.8rem;
+        "
+      >
+        <p style="color: var(--g)">
+          Total Installment Fees Paid:
+          <span style="font-weight: 500; color: var(--d)">₹3,000</span>
+        </p>
+        <p style="color: var(--g)">
+          Total Installment Fees Pending:
+          <span style="font-weight: 500; color: var(--d)">₹2,000</span>
+        </p>
+      </div>
+      <div
+        class="signature-section"
+        style="text-align: right; margin-top: 2rem"
+      >
+        <img
+          src="https://firebasestorage.googleapis.com/v0/b/tufeelive-new.appspot.com/o/6696%2Fsignature.png?alt=media&token=38dd6658-4a46-4e05-851c-4a6ae0858435"
+          alt="Digital Signature"
+          class="signature-img"
+          style="height: 3rem; margin-bottom: 0.5rem; margin-right: 1rem"
+        />
+        <p
+          class="signature-text"
+          style="font-size: 1.5rem; color: var(--d); margin-bottom: 1rem"
+        >
+          Signature
+        </p>
+      </div>
+
+      <div
+        class="border-line"
+        style="margin-top: 1rem 0; border-bottom: 1px solid var(--o)"
+      ></div>
+      <p
+        class="date-time"
+        style="color: var(--g); font-size: 0.8rem; margin: 1rem 0"
+      >
+        20/02/2024 • 15:20
+      </p>
+    </div>
+    <div class="yaxis-color" style="padding: 1.5rem"></div>
+  </body>
+</html>
