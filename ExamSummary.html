@@ -3,7 +3,7 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Fee Receipt</title>
+    <title>Exam Receipt</title>
     <style>
       @import url("https://fonts.googleapis.com/css2?family=Rubik:ital,wght@0,300..900;1,300..900&display=swap");
       :root {
@@ -27,7 +27,7 @@
       }
       html,
       body {
-        height: 100vh;
+        min-height: 100vh;
         padding: 0;
         background: #fff;
         -webkit-print-color-adjust: exact !important;
@@ -43,45 +43,63 @@
       .student-details h3,
       .signature-text,
       .label,
-      .receipt-no,
-      .fee-table th,
+      .exam-no,
+      .exam-table th,
       .total {
         font-weight: 500;
       }
       .company-details,
       .value,
-      .fee-table td,
       .label,
-      .receipt-no,
-      .fee-table th {
+      .exam-no,
+      .exam-table th {
         font-size: 1.2rem;
       }
       .company-details,
       .value,
-      .fee-table td {
+      .exam-table td {
         color: var(--g);
       }
-      .receipt-no,
-      .fee-table th,
+      .exam-no,
+      .exam-table th,
       .yaxis-color {
         background: var(--b) !important;
         -webkit-print-color-adjust: exact !important;
         print-color-adjust: exact !important;
       }
-      .fee-table th {
+      .exam-table th {
         padding: 1.3rem 2rem;
+        border: 2px solid #fff;
       }
-      .receipt-no,
-      .fee-table th {
+      .exam-no,
+      .exam-table th {
         color: #fff;
       }
       .label {
         color: var(--d);
       }
-      .fee-table td {
-        padding: 1.5rem 2rem;
+      .exam-table td:not(:empty):not(.total) {
+        padding: 1rem;
         text-align: center;
         border: 2px solid var(--br);
+      }
+      @media print {
+        .page-break {
+          page-break-before: always;
+        }
+        .exam-table {
+          page-break-inside: auto;
+        }
+        .exam-table tr {
+          page-break-inside: avoid;
+          page-break-after: auto;
+        }
+        .exam-table thead {
+          display: table-header-group;
+        }
+        .exam-table tfoot {
+          display: table-footer-group;
+        }
       }
     </style>
   </head>
@@ -140,27 +158,20 @@
           font-weight: 500;
         "
       >
-        Fee Receipt
+        Exam Summary
       </h2>
       <div
-        class="receipt-no"
+        class="exam-no"
         style="
-          padding: 1rem 2rem;
+          padding: 1.5rem;
           border-top: 2px solid var(--d);
-          margin-bottom: 30px;
           display: flex;
           flex-direction: row;
           justify-content: space-between;
         "
-      >
-        <span style="font-weight: 500">Receipt No.: 0001</span>
-        <span style="font-weight: 500">Date: 25/01/2025</span>
-      </div>
+      ></div>
 
       <div class="student-details" style="margin: 30px 0">
-        <h3 style="color: var(--d); font-size: 1.2rem; margin-bottom: 1.5rem">
-          Student Details
-        </h3>
         <div class="student-info-container" style="display: flex; gap: 15px">
           <img
             src="https://firebasestorage.googleapis.com/v0/b/tufeelive-new.appspot.com/o/10044%2FStudentImage%2F1701174272172?alt=media&token=aeb11cb4-00c4-419e-9d69-8e2ebb748ee3"
@@ -194,7 +205,7 @@
                 <span class="value">Emma Grace</span>
               </div>
               <div class="info-group">
-                <span class="label">Roll No.:</span>
+                <span class="label">Roll No :</span>
                 <span class="value">12</span>
               </div>
             </div>
@@ -206,11 +217,11 @@
               "
             >
               <div class="info-group">
-                <span class="label">Father Name:</span>
-                <span class="value">1 Jun to 1 Aug</span>
+                <span class="label">Father Name :</span>
+                <span class="value">Brooklyn Simmons</span>
               </div>
               <div class="info-group">
-                <span class="label">Phone 1:</span>
+                <span class="label">Phone 1 :</span>
                 <span class="value">(505) 555-0125</span>
               </div>
             </div>
@@ -218,74 +229,74 @@
         </div>
       </div>
 
-      <table
-        class="fee-table"
-        style="width: 100%; margin: 30px 0; border-collapse: collapse"
-      >
+      <table class="exam-table" style="width: 100%; border-collapse: collapse">
         <thead>
           <tr>
-            <th>Fee Header</th>
-            <th>Amount</th>
+            <th>Date</th>
+            <th>Subject</th>
+            <th>Total</th>
+            <th>Gain</th>
+            <th>%</th>
+            <th>Remark</th>
           </tr>
         </thead>
         <tbody>
           <tr>
-            <td>9th Class 2024-25</td>
-            <td>₹25,000</td>
+            <td>25/01/2025</td>
+            <td>Hindi</td>
+            <td>70</td>
+            <td>57</td>
+            <td>81.43%</td>
+            <td>Outstanding</td>
+          </tr>
+          <tr>
+            <td>25/01/2025</td>
+            <td>English</td>
+            <td>70</td>
+            <td>57</td>
+            <td>81.43%</td>
+            <td>Outstanding Performance Keep it up</td>
           </tr>
         </tbody>
         <tfoot>
-          <tr>
+          <tr class="total">
+            <td></td>
             <td
-              class="total"
-              colspan="2"
               style="
                 text-align: center;
+                text-transform: uppercase;
                 font-size: 1rem;
-                color: var(--d) !important;
-                background: var(--bg) !important;
                 padding: 1.5rem;
                 margin: 1.5rem 0;
                 -webkit-print-color-adjust: exact !important;
                 print-color-adjust: exact !important;
               "
             >
-              Total Amount ₹25,000
+              Total
             </td>
+            <td>140</td>
+            <td>114</td>
+            <td>81.43%</td>
+            <td></td>
           </tr>
         </tfoot>
       </table>
       <div
-        style="
-          display: flex;
-          flex-direction: row;
-          justify-content: space-between;
-        "
+        class="signature-section"
+        style="text-align: right; margin-top: 2rem"
       >
-        <div style="font-size: 0.9rem; color: var(--g)">
-          <p style="margin-bottom: 0.5rem">
-            <span style="font-weight: 500">Remark:</span>
-            Received Admission Fee
-          </p>
-          <p><span style="font-weight: 500">Payment Mode:</span> UPI</p>
-        </div>
-        <div
-          class="signature-section"
-          style="text-align: right; margin-top: 2rem"
+        <img
+          src="https://firebasestorage.googleapis.com/v0/b/tufeelive-new.appspot.com/o/6696%2Fsignature.png?alt=media&token=38dd6658-4a46-4e05-851c-4a6ae0858435"
+          alt="Digital Signature"
+          class="signature-img"
+          style="height: 3rem; margin-bottom: 0.5rem; margin-right: 1rem"
+        />
+        <p
+          class="signature-text"
+          style="font-size: 1.5rem; color: var(--d); margin-bottom: 1rem"
         >
-          <img
-            src="https://firebasestorage.googleapis.com/v0/b/tufeelive-new.appspot.com/o/6696%2Fsignature.png?alt=media&token=38dd6658-4a46-4e05-851c-4a6ae0858435"
-            alt="Digital Signature"
-            class="signature-img"
-            style="height: 3rem; margin-bottom: 0.5rem; margin-right: 1rem"
-          />
-          <p
-            class="signature-text"
-            style="font-size: 1.5rem; color: var(--d); margin-bottom: 1rem"
-          >
-            Signature
-          </p>
-        </div>
+          Signature
+        </p>
       </div>
 
       <div

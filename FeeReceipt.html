@@ -1,0 +1,305 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Fee Receipt</title>
+    <style>
+      @import url("https://fonts.googleapis.com/css2?family=Rubik:ital,wght@0,300..900;1,300..900&display=swap");
+      :root {
+        --b: #3692fc;
+        --o: #fca036;
+        --d: #263449;
+        --g: #6a7898;
+        --l: #64748b;
+        --br: #f0f0f0;
+        --bg: #eef0f3;
+      }
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+        font-family: rubik, sans-serif;
+      }
+      @page {
+        size: A4;
+        margin: 0;
+      }
+      html,
+      body {
+        height: 100vh;
+        padding: 0;
+        background: #fff;
+        -webkit-print-color-adjust: exact !important;
+        print-color-adjust: exact !important;
+      }
+      body {
+        margin: 0 auto;
+        display: flex;
+        flex-direction: column;
+        width: 210mm;
+      }
+      .company-name,
+      .student-details h3,
+      .signature-text,
+      .label,
+      .receipt-no,
+      .fee-table th,
+      .total {
+        font-weight: 500;
+      }
+      .company-details,
+      .value,
+      .fee-table td,
+      .label,
+      .receipt-no,
+      .fee-table th {
+        font-size: 1.2rem;
+      }
+      .company-details,
+      .value,
+      .fee-table td {
+        color: var(--g);
+      }
+      .receipt-no,
+      .fee-table th,
+      .yaxis-color {
+        background: var(--b) !important;
+        -webkit-print-color-adjust: exact !important;
+        print-color-adjust: exact !important;
+      }
+      .fee-table th {
+        padding: 1.3rem 2rem;
+        border: 2px solid #fff;
+      }
+      .receipt-no,
+      .fee-table th {
+        color: #fff;
+      }
+      .label {
+        color: var(--d);
+      }
+      .fee-table td {
+        padding: 1.5rem 2rem;
+        text-align: center;
+        border: 2px solid var(--br);
+      }
+    </style>
+  </head>
+  <body>
+    <div class="yaxis-color" style="padding: 1.5rem"></div>
+    <div
+      class="content-wrapper"
+      style="
+        flex: 1;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+        padding: 0 40px;
+      "
+    >
+      <div
+        class="border-top-line"
+        style="margin: 2rem 0; border-bottom: 1px solid var(--o)"
+      ></div>
+      <div
+        class="header"
+        style="
+          display: flex;
+          align-items: center;
+          gap: 15px;
+          margin-bottom: 40px;
+        "
+      >
+        <img
+          class="logo"
+          src="https://firebasestorage.googleapis.com/v0/b/tufeelive-new.appspot.com/o/6696%2Flogo_online.png?alt=media&token=690d2cf4-190a-4e4d-809d-d5b3edc75184"
+          alt="TuFee"
+          style="width: 5.8rem; height: 5.8rem; border: 2px solid #f2cc1f"
+        />
+        <div class="company-info" style="flex: 1">
+          <h1
+            class="company-name"
+            style="color: var(--d); margin-bottom: 8px; font-size: 2rem"
+          >
+            TuFee
+          </h1>
+          <div class="company-details" style="line-height: 1.5">
+            4140 Parker Rd. Allentown, New Mexico 31134
+          </div>
+          <div class="company-details" style="line-height: 1.5">
+            (808) 555-0111
+          </div>
+        </div>
+      </div>
+
+      <h2
+        style="
+          font-size: 2rem;
+          color: var(--g);
+          margin: 0 0 1rem;
+          font-weight: 500;
+        "
+      >
+        Fee Receipt
+      </h2>
+      <div
+        class="receipt-no"
+        style="
+          padding: 1rem 2rem;
+          border-top: 2px solid var(--d);
+          margin-bottom: 30px;
+          display: flex;
+          flex-direction: row;
+          justify-content: space-between;
+        "
+      >
+        <span style="font-weight: 500">Receipt No.: 0001</span>
+        <span style="font-weight: 500">Date: 25/01/2025</span>
+      </div>
+
+      <div class="student-details" style="margin: 30px 0">
+        <h3 style="color: var(--d); font-size: 1.2rem; margin-bottom: 1.5rem">
+          Student Details
+        </h3>
+        <div class="student-info-container" style="display: flex; gap: 15px">
+          <img
+            src="https://firebasestorage.googleapis.com/v0/b/tufeelive-new.appspot.com/o/10044%2FStudentImage%2F1701174272172?alt=media&token=aeb11cb4-00c4-419e-9d69-8e2ebb748ee3"
+            alt="Student Photo"
+            class="student-photo"
+            style="
+              width: 6rem;
+              height: 6rem;
+              border-radius: 50%;
+              object-fit: cover;
+            "
+          />
+          <div
+            class="info"
+            style="
+              width: 100%;
+              display: flex;
+              flex-direction: row;
+              justify-content: space-between;
+            "
+          >
+            <div
+              style="
+                display: flex;
+                flex-direction: column;
+                justify-content: space-evenly;
+              "
+            >
+              <div class="info-group">
+                <span class="label">Name :</span>
+                <span class="value">Emma Grace</span>
+              </div>
+              <div class="info-group">
+                <span class="label">Roll No.:</span>
+                <span class="value">12</span>
+              </div>
+            </div>
+            <div
+              style="
+                display: flex;
+                flex-direction: column;
+                justify-content: space-evenly;
+              "
+            >
+              <div class="info-group">
+                <span class="label">Father Name:</span>
+                <span class="value">1 Jun to 1 Aug</span>
+              </div>
+              <div class="info-group">
+                <span class="label">Phone 1:</span>
+                <span class="value">(505) 555-0125</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <table
+        class="fee-table"
+        style="width: 100%; margin: 30px 0; border-collapse: collapse"
+      >
+        <thead>
+          <tr>
+            <th>Fee Header</th>
+            <th>Amount</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>9th Class 2024-25</td>
+            <td>₹25,000</td>
+          </tr>
+        </tbody>
+        <tfoot>
+          <tr>
+            <td
+              class="total"
+              colspan="2"
+              style="
+                text-align: center;
+                font-size: 1rem;
+                color: var(--d) !important;
+                background: var(--bg) !important;
+                padding: 1.5rem;
+                margin: 1.5rem 0;
+                -webkit-print-color-adjust: exact !important;
+                print-color-adjust: exact !important;
+              "
+            >
+              Total Amount ₹25,000
+            </td>
+          </tr>
+        </tfoot>
+      </table>
+      <div
+        style="
+          display: flex;
+          flex-direction: row;
+          justify-content: space-between;
+        "
+      >
+        <div style="font-size: 0.9rem; color: var(--g)">
+          <p style="margin-bottom: 0.5rem">
+            <span style="font-weight: 500">Remark:</span>
+            Received Admission Fee
+          </p>
+          <p><span style="font-weight: 500">Payment Mode:</span> UPI</p>
+        </div>
+        <div
+          class="signature-section"
+          style="text-align: right; margin-top: 2rem"
+        >
+          <img
+            src="https://firebasestorage.googleapis.com/v0/b/tufeelive-new.appspot.com/o/6696%2Fsignature.png?alt=media&token=38dd6658-4a46-4e05-851c-4a6ae0858435"
+            alt="Digital Signature"
+            class="signature-img"
+            style="height: 3rem; margin-bottom: 0.5rem; margin-right: 1rem"
+          />
+          <p
+            class="signature-text"
+            style="font-size: 1.5rem; color: var(--d); margin-bottom: 1rem"
+          >
+            Signature
+          </p>
+        </div>
+      </div>
+
+      <div
+        class="border-line"
+        style="margin-top: 1rem 0; border-bottom: 1px solid var(--o)"
+      ></div>
+      <p
+        class="date-time"
+        style="color: var(--g); font-size: 0.8rem; margin: 1rem 0"
+      >
+        20/02/2024 • 15:20
+      </p>
+    </div>
+    <div class="yaxis-color" style="padding: 1.5rem"></div>
+  </body>
+</html>
