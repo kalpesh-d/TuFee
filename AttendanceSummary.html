@@ -1,0 +1,487 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Attendance Summary</title>
+    <style>
+      @import url("https://fonts.googleapis.com/css2?family=Rubik:ital,wght@0,300..900;1,300..900&display=swap");
+      :root {
+        --b: #3692fc;
+        --o: #fca036;
+        --d: #263449;
+        --g: #6a7898;
+        --l: #64748b;
+        --br: #f0f0f0;
+        --bg: #eef0f3;
+        --gr: #00a84f;
+        --r: #d1293d;
+      }
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+        font-family: rubik, sans-serif;
+      }
+      @page {
+        size: A4;
+        margin: 0;
+      }
+      html,
+      body {
+        min-height: 100vh;
+        padding: 0;
+        background: #fff;
+        -webkit-print-color-adjust: exact !important;
+        print-color-adjust: exact !important;
+      }
+      body {
+        margin: 0 auto;
+        display: flex;
+        flex-direction: column;
+        width: 210mm;
+      }
+      .company-name,
+      .student-details h3,
+      .signature-text,
+      .label,
+      .attendance-no,
+      .attendance-table th,
+      .total {
+        font-weight: 500;
+      }
+      .company-details,
+      .value,
+      .label,
+      .attendance-no,
+      .attendance-table th {
+        font-size: 1.2rem;
+      }
+      .company-details,
+      .value,
+      .attendance-table td {
+        color: var(--g);
+      }
+      .attendance-no,
+      .attendance-table th,
+      .yaxis-color {
+        background: var(--b) !important;
+        -webkit-print-color-adjust: exact !important;
+        print-color-adjust: exact !important;
+      }
+      .attendance-table th {
+        padding: 1.3rem 2rem;
+        border: 2px solid #fff;
+      }
+      .attendance-no,
+      .attendance-table th {
+        color: #fff;
+      }
+      .label {
+        color: var(--d);
+      }
+      .attendance-table td:not(:empty):not(.total) {
+        padding: 1rem;
+        text-align: center;
+        border: 2px solid var(--br);
+      }
+      .calendar-date {
+        width: 2.5rem;
+        height: 2.5rem;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        border-radius: 50%;
+      }
+      .calendar-date.present {
+        background: #e3fff0;
+        border: 1px solid #00a84f;
+        color: #6a7898;
+      }
+      .calendar-date.absent {
+        background: #faeaec;
+        border: 1px solid #d1293d;
+        color: #6a7898;
+      }
+      .calendar-date.weekend {
+        color: var(--g);
+      }
+      @media print {
+        .page-break {
+          page-break-before: always;
+        }
+        .attendance-table {
+          page-break-inside: auto;
+        }
+        .attendance-table tr {
+          page-break-inside: avoid;
+          page-break-after: auto;
+        }
+        .attendance-table thead {
+          display: table-header-group;
+        }
+        .attendance-table tfoot {
+          display: table-footer-group;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <div class="yaxis-color" style="padding: 1.5rem"></div>
+    <div
+      class="content-wrapper"
+      style="
+        flex: 1;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+        padding: 0 40px;
+      "
+    >
+      <div
+        class="border-top-line"
+        style="margin: 2rem 0; border-bottom: 1px solid var(--o)"
+      ></div>
+      <div
+        class="header"
+        style="
+          display: flex;
+          align-items: center;
+          gap: 15px;
+          margin-bottom: 40px;
+        "
+      >
+        <img
+          class="logo"
+          src="https://firebasestorage.googleapis.com/v0/b/tufeelive-new.appspot.com/o/6696%2Flogo_online.png?alt=media&token=690d2cf4-190a-4e4d-809d-d5b3edc75184"
+          alt="TuFee"
+          style="width: 5.8rem; height: 5.8rem; border: 2px solid #f2cc1f"
+        />
+        <div class="company-info" style="flex: 1">
+          <h1
+            class="company-name"
+            style="color: var(--d); margin-bottom: 8px; font-size: 2rem"
+          >
+            TuFee
+          </h1>
+          <div class="company-details" style="line-height: 1.5">
+            4140 Parker Rd. Allentown, New Mexico 31134
+          </div>
+          <div class="company-details" style="line-height: 1.5">
+            (808) 555-0111
+          </div>
+        </div>
+      </div>
+
+      <h2
+        style="
+          font-size: 2rem;
+          color: var(--g);
+          margin: 0 0 0.5rem;
+          font-weight: 500;
+        "
+      >
+        Attendance Summary
+      </h2>
+      <p style="color: var(--g)">June 2024</p>
+      <div
+        class="attendance-no"
+        style="
+          margin: 1rem 0 0;
+          padding: 1.5rem;
+          border-top: 2px solid var(--d);
+          display: flex;
+          flex-direction: row;
+          justify-content: space-between;
+        "
+      ></div>
+
+      <div class="student-details" style="margin: 30px 0">
+        <div class="student-info-container" style="display: flex; gap: 15px">
+          <img
+            src="https://firebasestorage.googleapis.com/v0/b/tufeelive-new.appspot.com/o/10044%2FStudentImage%2F1701174272172?alt=media&token=aeb11cb4-00c4-419e-9d69-8e2ebb748ee3"
+            alt="Student Photo"
+            class="student-photo"
+            style="
+              width: 6rem;
+              height: 6rem;
+              border-radius: 50%;
+              object-fit: cover;
+            "
+          />
+          <div
+            class="info"
+            style="
+              width: 100%;
+              display: flex;
+              flex-direction: row;
+              justify-content: space-between;
+            "
+          >
+            <div
+              style="
+                display: flex;
+                flex-direction: column;
+                justify-content: space-evenly;
+              "
+            >
+              <div class="info-group">
+                <span class="label">Name :</span>
+                <span class="value">Emma Grace</span>
+              </div>
+              <div class="info-group">
+                <span class="label">Roll No :</span>
+                <span class="value">12</span>
+              </div>
+              <div class="info-group">
+                <span class="label">Batch :</span>
+                <span class="value">10th Class 2024-25</span>
+              </div>
+            </div>
+            <div
+              style="
+                display: flex;
+                flex-direction: column;
+                justify-content: space-evenly;
+              "
+            >
+              <div class="info-group">
+                <span class="label">Father Name :</span>
+                <span class="value">Brooklyn Simmons</span>
+              </div>
+              <div class="info-group">
+                <span class="label">Phone 1 :</span>
+                <span class="value">(505) 555-0125</span>
+              </div>
+              <div class="info-group">
+                <span class="label">&nbsp;</span>
+                <span class="value">&nbsp;</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div
+        style="display: flex; flex-direction: row; gap: 2rem; margin-top: 1rem"
+      >
+        <div
+          class="calendar"
+          style="
+            border: 2px solid var(--br);
+            border-radius: 12px;
+            padding: 2rem 1rem;
+            width: 460px;
+            flex-shrink: 0;
+          "
+        >
+          <h3
+            style="
+              color: var(--d);
+              font-size: 1.5rem;
+              font-weight: 500;
+              margin: 0 0 1.5rem 1.5rem;
+            "
+          >
+            June 2024
+          </h3>
+          <div
+            style="
+              display: grid;
+              grid-template-columns: repeat(7, 1fr);
+              justify-items: center;
+              gap: 1rem;
+              margin-bottom: 2rem;
+            "
+          >
+            <div style="color: var(--g)">Mo</div>
+            <div style="color: var(--g)">Tu</div>
+            <div style="color: var(--g)">We</div>
+            <div style="color: var(--g)">Th</div>
+            <div style="color: var(--g)">Fr</div>
+            <div style="color: var(--g)">Sa</div>
+            <div style="color: var(--g)">Su</div>
+          </div>
+          <div
+            class="calendar-grid dates"
+            style="
+              display: grid;
+              grid-template-columns: repeat(7, 1fr);
+              justify-items: center;
+              align-items: center;
+              gap: 1rem;
+            "
+          >
+            <div></div>
+            <div></div>
+            <div></div>
+            <div></div>
+            <div class="calendar-date present">1</div>
+            <div class="calendar-date present">2</div>
+            <div class="calendar-date weekend">3</div>
+            <div class="calendar-date present">4</div>
+            <div class="calendar-date present">5</div>
+            <div class="calendar-date present">6</div>
+            <div class="calendar-date present">7</div>
+            <div class="calendar-date present">8</div>
+            <div class="calendar-date present">9</div>
+            <div class="calendar-date weekend">10</div>
+            <div class="calendar-date present">11</div>
+            <div class="calendar-date present">12</div>
+            <div class="calendar-date present">13</div>
+            <div class="calendar-date present">14</div>
+            <div class="calendar-date present">15</div>
+            <div class="calendar-date present">16</div>
+            <div class="calendar-date weekend">17</div>
+            <div class="calendar-date present">18</div>
+            <div class="calendar-date present">19</div>
+            <div class="calendar-date present">20</div>
+            <div class="calendar-date present">21</div>
+            <div class="calendar-date present">22</div>
+            <div class="calendar-date present">23</div>
+            <div class="calendar-date weekend">24</div>
+            <div class="calendar-date absent">25</div>
+            <div class="calendar-date present">26</div>
+            <div class="calendar-date present">27</div>
+            <div class="calendar-date present">28</div>
+            <div class="calendar-date present">29</div>
+            <div class="calendar-date present">30</div>
+          </div>
+        </div>
+        <div style="display: flex; gap: 1rem; flex-direction: column; flex: 1">
+          <div
+            style="
+              background: #e8f5e9;
+              padding: 1rem 2rem;
+              border-radius: 1rem;
+              width: 100%;
+              display: flex;
+              align-items: center;
+              gap: 0.5rem;
+              height: 6rem;
+            "
+          >
+            <span
+              style="
+                height: 0.6rem;
+                width: 0.6rem;
+                border-radius: 5rem;
+                background-color: var(--gr);
+                margin-right: 0.3rem;
+              "
+            ></span>
+            <span style="color: #2e7d32; font-weight: 500; font-size: 2rem"
+              >24</span
+            >
+            <span style="color: #2e7d32; font-size: 1rem">Present</span>
+          </div>
+          <div
+            style="
+              background: #ffebee;
+              padding: 1rem 2rem;
+              border-radius: 1rem;
+              display: flex;
+              align-items: center;
+              gap: 0.5rem;
+              height: 6rem;
+            "
+          >
+            <span
+              style="
+                height: 0.6rem;
+                width: 0.6rem;
+                border-radius: 5rem;
+                background-color: var(--r);
+                margin-right: 0.3rem;
+              "
+            ></span>
+            <span style="color: var(--r); font-weight: 500; font-size: 2rem"
+              >4</span
+            >
+            <span style="color: var(--r); font-size: 1rem">Absent</span>
+          </div>
+          <div
+            style="
+              background: #e3f2fd;
+              padding: 1rem 2rem;
+              border-radius: 1rem;
+              display: flex;
+              align-items: center;
+              gap: 0.5rem;
+              height: 6rem;
+            "
+          >
+            <span
+              style="
+                height: 0.6rem;
+                width: 0.6rem;
+                border-radius: 5rem;
+                background-color: #1565c0;
+                margin-right: 0.3rem;
+              "
+            ></span>
+            <span style="color: #1565c0; font-weight: 500; font-size: 2rem"
+              >2</span
+            >
+            <span style="color: #1565c0; font-size: 1rem">Holiday</span>
+          </div>
+          <div
+            style="
+              background: #f5f5f5;
+              padding: 1rem 2rem;
+              border-radius: 1rem;
+              display: flex;
+              align-items: center;
+              gap: 0.5rem;
+              height: 6rem;
+            "
+          >
+            <span
+              style="
+                height: 0.6rem;
+                width: 0.6rem;
+                border-radius: 5rem;
+                background-color: #616161;
+                margin-right: 0.3rem;
+              "
+            ></span>
+            <span style="color: #616161; font-weight: 500; font-size: 2rem"
+              >2</span
+            >
+            <span style="color: #616161; font-size: 1rem">Leave</span>
+          </div>
+        </div>
+      </div>
+
+      <div
+        class="signature-section"
+        style="text-align: right; margin-top: 2rem"
+      >
+        <img
+          src="https://firebasestorage.googleapis.com/v0/b/tufeelive-new.appspot.com/o/6696%2Fsignature.png?alt=media&token=38dd6658-4a46-4e05-851c-4a6ae0858435"
+          alt="Digital Signature"
+          class="signature-img"
+          style="height: 3rem; margin-bottom: 0.5rem; margin-right: 1rem"
+        />
+        <p
+          class="signature-text"
+          style="font-size: 1.5rem; color: var(--d); margin-bottom: 1rem"
+        >
+          Signature
+        </p>
+      </div>
+
+      <div
+        class="border-line"
+        style="margin-top: 1rem 0; border-bottom: 1px solid var(--o)"
+      ></div>
+      <p
+        class="date-time"
+        style="color: var(--g); font-size: 0.8rem; margin: 1rem 0"
+      >
+        20/02/2024 • 15:20
+      </p>
+    </div>
+    <div class="yaxis-color" style="padding: 1.5rem"></div>
+  </body>
+</html>
