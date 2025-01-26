@@ -1,0 +1,473 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Student Registration Form</title>
+    <style>
+      @import url("https://fonts.googleapis.com/css2?family=Rubik:ital,wght@0,300..900;1,300..900&display=swap");
+      :root {
+        --b: #3692fc;
+        --o: #fca036;
+        --d: #263449;
+        --g: #6a7898;
+        --l: #64748b;
+        --br: #f0f0f0;
+        --bg: #eef0f3;
+      }
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+        font-family: rubik, sans-serif;
+      }
+      @page {
+        size: A4;
+        margin: 0;
+      }
+      html,
+      body {
+        min-height: 100vh;
+        padding: 0;
+        background: #fff;
+        -webkit-print-color-adjust: exact !important;
+        print-color-adjust: exact !important;
+      }
+      body {
+        margin: 0 auto;
+        display: flex;
+        flex-direction: column;
+        width: 210mm;
+      }
+      .company-name,
+      .student-details h3,
+      .signature-text,
+      .label {
+        font-weight: 500;
+      }
+      .company-details,
+      .value,
+      .label {
+        font-size: 1.2rem;
+      }
+      .company-details,
+      .value {
+        color: var(--d);
+      }
+      .label {
+        color: var(--g);
+      }
+      .yaxis-color {
+        background: var(--b) !important;
+        -webkit-print-color-adjust: exact !important;
+        print-color-adjust: exact !important;
+      }
+      .info-group {
+        display: flex;
+        justify-content: space-between;
+        padding: 1rem;
+        border-bottom: 1px solid var(--br);
+      }
+      .info-group:nth-child(even) {
+        background-color: #f6f6f6;
+      }
+      .info-group:nth-child(odd) {
+        background-color: #fff;
+      }
+      .info-group .label {
+        color: var(--g);
+        font-weight: normal;
+      }
+      .info-group .value {
+        color: var(--d);
+        font-weight: 500;
+      }
+      .value {
+        max-width: 20rem;
+      }
+      .fee-table th {
+        padding: 1.2rem 1rem;
+        border: 2px solid #fff;
+        color: #fff;
+        background: var(--b) !important;
+        -webkit-print-color-adjust: exact !important;
+        print-color-adjust: exact !important;
+      }
+      .fee-table td:not(:empty):not(.total) {
+        padding: 1rem;
+        text-align: left;
+        border: 2px solid var(--br);
+      }
+      .fee-table {
+        table-layout: fixed;
+      }
+      .fee-table th:first-child,
+      .fee-table td:first-child {
+        width: 40%;
+        white-space: nowrap;
+        overflow: hidden;
+        text-overflow: ellipsis;
+      }
+      .fee-table th:nth-child(2),
+      .fee-table td:nth-child(2) {
+        width: 25%;
+        white-space: normal;
+        word-wrap: break-word;
+      }
+      .fee-table th:nth-child(3),
+      .fee-table td:nth-child(3) {
+        width: 15%;
+        white-space: nowrap;
+      }
+      .fee-table th:last-child,
+      .fee-table td:last-child {
+        width: 20%;
+        white-space: normal;
+        word-wrap: break-word;
+      }
+      .fee-table td:nth-child(3),
+      .fee-table td:nth-child(4) {
+        text-align: center;
+      }
+      .fee-table td[colspan="4"] {
+        background: #f8f9fa;
+        font-weight: 500;
+        border: none;
+      }
+      .fee-table td {
+        font-size: 1.1rem;
+        color: var(--g);
+      }
+      .fee-table th {
+        font-size: 1.2rem;
+      }
+      .fee-table th:nth-child(3),
+      .fee-table th:nth-child(4) {
+        text-align: center;
+      }
+      .fee-table tr:nth-child(even):not(:first-child) td {
+        background-color: #f6f6f6;
+      }
+      .fee-table tr:nth-child(odd) td {
+        background-color: #fff;
+      }
+      @media print {
+        body {
+          width: 100%;
+          margin: 0;
+          padding: 0;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <div class="yaxis-color" style="padding: 1.5rem"></div>
+    <div
+      class="content-wrapper"
+      style="
+        flex: 1;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+        padding: 0 40px;
+      "
+    >
+      <div
+        class="border-top-line"
+        style="margin: 2rem 0; border-bottom: 1px solid var(--o)"
+      ></div>
+
+      <div
+        class="header"
+        style="
+          display: flex;
+          align-items: center;
+          gap: 15px;
+          margin-bottom: 40px;
+        "
+      >
+        <img
+          class="logo"
+          src="https://firebasestorage.googleapis.com/v0/b/tufeelive-new.appspot.com/o/6696%2Flogo_online.png?alt=media&token=690d2cf4-190a-4e4d-809d-d5b3edc75184"
+          alt="TuFee"
+          style="width: 5.8rem; height: 5.8rem; border: 2px solid #f2cc1f"
+        />
+        <div class="company-info" style="flex: 1">
+          <h1
+            class="company-name"
+            style="color: var(--d); margin-bottom: 8px; font-size: 2rem"
+          >
+            TuFee
+          </h1>
+          <div class="company-details" style="line-height: 1.5">
+            4140 Parker Rd. Allentown, New Mexico 31134
+          </div>
+          <div class="company-details" style="line-height: 1.5">
+            (808) 555-0111
+          </div>
+        </div>
+      </div>
+
+      <h2
+        style="
+          font-size: 2rem;
+          color: var(--g);
+          margin: 0 0 2rem;
+          font-weight: 500;
+        "
+      >
+        Student Registration
+      </h2>
+      <div
+        class="fee-no"
+        style="
+          padding: 1.5rem;
+          border-top: 2px solid var(--d);
+          display: flex;
+          flex-direction: row;
+          justify-content: space-between;
+          background: var(--b);
+        "
+      ></div>
+
+      <div class="student-details" style="margin: 2rem 0">
+        <div
+          class="student-info-container"
+          style="display: flex; gap: 15px; margin-bottom: 2rem"
+        >
+          <img
+            src="https://firebasestorage.googleapis.com/v0/b/tufeelive-new.appspot.com/o/10044%2FStudentImage%2F1701174272172?alt=media&token=aeb11cb4-00c4-419e-9d69-8e2ebb748ee3"
+            alt="Student Photo"
+            class="student-photo"
+            style="
+              width: 6rem;
+              height: 6rem;
+              border-radius: 50%;
+              object-fit: cover;
+            "
+          />
+          <div
+            style="
+              display: flex;
+              flex-direction: column;
+              justify-content: center;
+              gap: 1rem;
+            "
+          >
+            <div>
+              <span class="label">Name : </span>
+              <span class="value">Emma Grace</span>
+            </div>
+            <div>
+              <span class="label">Date of Birth : </span>
+              <span class="value">21/02/1996</span>
+            </div>
+          </div>
+        </div>
+
+        <h3 style="color: var(--d); font-size: 1.4rem; margin: 2rem 0 1.5rem">
+          Personal Information
+        </h3>
+        <div
+          style="
+            display: flex;
+            flex-direction: column;
+            border: 1px solid var(--br);
+          "
+        >
+          <div class="info-group">
+            <span class="label">Father Name</span>
+            <span class="value">Cameron David</span>
+          </div>
+          <div class="info-group">
+            <span class="label">Mother Name</span>
+            <span class="value">Jenny David</span>
+          </div>
+          <div class="info-group">
+            <span class="label">Caste</span>
+            <span class="value">-</span>
+          </div>
+          <div class="info-group">
+            <span class="label">Aadhar Card</span>
+            <span class="value">6984 5445 2233</span>
+          </div>
+          <div class="info-group">
+            <span class="label">Gender</span>
+            <span class="value">Male</span>
+          </div>
+        </div>
+
+        <h3 style="color: var(--d); font-size: 1.4rem; margin: 2rem 0 1.5rem">
+          Contact Information
+        </h3>
+        <div
+          style="
+            display: flex;
+            flex-direction: column;
+            border: 1px solid var(--br);
+          "
+        >
+          <div class="info-group">
+            <span class="label">Phone Number</span>
+            <span class="value">(208)555-0112</span>
+          </div>
+          <div class="info-group">
+            <span class="label">WhatsApp Number</span>
+            <span class="value">(480)555-0103</span>
+          </div>
+          <div class="info-group">
+            <span class="label">Address</span>
+            <span class="value"
+              >2118 Thornridge Cir. Syracuse, Connecticut 35624</span
+            >
+          </div>
+        </div>
+
+        <h3 style="color: var(--d); font-size: 1.4rem; margin: 2rem 0 1.5rem">
+          Academic Information
+        </h3>
+        <div
+          style="
+            display: flex;
+            flex-direction: column;
+            border: 1px solid var(--br);
+          "
+        >
+          <div class="info-group">
+            <span class="label">Standard</span>
+            <span class="value">-</span>
+          </div>
+          <div class="info-group">
+            <span class="label">School Name</span>
+            <span class="value">D D Mehta School</span>
+          </div>
+          <div class="info-group">
+            <span class="label">Batch</span>
+            <span class="value">9th Class 2024-25</span>
+          </div>
+          <div class="info-group">
+            <span class="label">Roll No.</span>
+            <span class="value">12</span>
+          </div>
+        </div>
+      </div>
+
+      <table
+        class="fee-table"
+        style="
+          width: 100%;
+          border-collapse: collapse;
+          text-wrap: nowrap;
+          margin-top: 2rem;
+        "
+      >
+        <thead>
+          <tr>
+            <th style="width: calc(100% - 20px - 20px)">
+              Batch & Fee Category
+            </th>
+            <th>Fee Type</th>
+            <th>Amount</th>
+            <th>Start & End Date</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td
+              colspan="4"
+              style="font-size: 1.2rem; text-align: left; padding-left: 1rem"
+            >
+              12th Chem 2024-25
+            </td>
+          </tr>
+          <tr>
+            <td style="text-align: left; width: calc(100% - 20px - 20px)">
+              • Enrollment Fee
+            </td>
+            <td>One Time</td>
+            <td>₹500</td>
+            <td>January 2024</td>
+          </tr>
+          <tr>
+            <td style="text-align: left; width: calc(100% - 20px - 20px)">
+              • Course Fee
+            </td>
+            <td>Installment 1</td>
+            <td>₹1,500</td>
+            <td>-</td>
+          </tr>
+          <tr>
+            <td style="text-align: left; width: calc(100% - 20px - 20px)">
+              • Complimentary Kit Charge
+            </td>
+            <td>Feb -2024</td>
+            <td>₹500</td>
+            <td>03/04/24 to 02/05/24</td>
+          </tr>
+          <tr>
+            <td
+              colspan="4"
+              style="font-size: 1.2rem; text-align: left; padding-left: 1rem"
+            >
+              10th Class 2024-25
+            </td>
+          </tr>
+          <tr>
+            <td style="text-align: left; width: calc(100% - 20px - 20px)">
+              • Enrollment Fee
+            </td>
+            <td>One Time</td>
+            <td>₹500</td>
+            <td>01/05/2024</td>
+          </tr>
+          <tr>
+            <td style="text-align: left; width: calc(100% - 20px - 20px)">
+              • Course Fee
+            </td>
+            <td>03/04/24 to 02/05/24</td>
+            <td>₹1,500</td>
+            <td>01/05/2024</td>
+          </tr>
+          <tr>
+            <td style="text-align: left; width: calc(100% - 20px - 20px)">
+              • Complimentary Kit Charge
+            </td>
+            <td>03/01/24 to 02/04/24</td>
+            <td>₹500</td>
+            <td>01/05/2024</td>
+          </tr>
+        </tbody>
+      </table>
+
+      <div
+        class="signature-section"
+        style="text-align: right; margin: 4rem 0 1rem 0"
+      >
+        <img
+          src="https://firebasestorage.googleapis.com/v0/b/tufeelive-new.appspot.com/o/6696%2Fsignature.png?alt=media&token=38dd6658-4a46-4e05-851c-4a6ae0858435"
+          alt="Digital Signature"
+          class="signature-img"
+          style="height: 3rem; margin-bottom: 0.5rem; margin-right: 1rem"
+        />
+        <p
+          class="signature-text"
+          style="font-size: 1.5rem; color: var(--d); margin-bottom: 1rem"
+        >
+          Signature
+        </p>
+      </div>
+
+      <div
+        class="border-line"
+        style="margin-top: 1rem 0; border-bottom: 1px solid var(--o)"
+      ></div>
+      <p
+        class="date-time"
+        style="color: var(--g); font-size: 0.8rem; margin: 1rem 0"
+      >
+        20/02/2024 • 15:20
+      </p>
+    </div>
+    <div class="yaxis-color" style="padding: 1.5rem"></div>
+  </body>
+</html>
