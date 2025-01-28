@@ -1,95 +1,80 @@
 <!DOCTYPE html>
-<html lang="en">
+<html
+  lang="en"
+  style="
+    padding: 0;
+    background: #fff;
+    -webkit-print-color-adjust: exact !important;
+    print-color-adjust: exact !important;
+  "
+>
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Fee Receipt</title>
-    <style>
-      @import url("https://fonts.googleapis.com/css2?family=Rubik:ital,wght@0,300..900;1,300..900&display=swap");
-      :root {
-        --b: #3692fc;
-        --o: #fca036;
-        --d: #263449;
-        --g: #6a7898;
-        --l: #64748b;
-        --br: #f0f0f0;
-        --bg: #eef0f3;
-      }
-      * {
-        margin: 0;
-        padding: 0;
-        box-sizing: border-box;
-        font-family: rubik, sans-serif;
-      }
-      @page {
-        size: A4;
-        margin: 0;
-      }
-      html,
-      body {
-        height: 100vh;
-        padding: 0;
-        background: #fff;
-        -webkit-print-color-adjust: exact !important;
-        print-color-adjust: exact !important;
-      }
-      body {
-        margin: 0 auto;
-        display: flex;
-        flex-direction: column;
-        width: 210mm;
-      }
-      .company-name,
-      .student-details h3,
-      .signature-text,
-      .label,
-      .receipt-no,
-      .fee-table th,
-      .total {
-        font-weight: 500;
-      }
-      .company-details,
-      .value,
-      .fee-table td,
-      .label,
-      .receipt-no,
-      .fee-table th {
-        font-size: 1.2rem;
-      }
-      .company-details,
-      .value,
-      .fee-table td {
-        color: var(--g);
-      }
-      .receipt-no,
-      .fee-table th,
-      .yaxis-color {
-        background: var(--b) !important;
-        -webkit-print-color-adjust: exact !important;
-        print-color-adjust: exact !important;
-      }
-      .fee-table th {
-        padding: 1.3rem 2rem;
-        border: 2px solid #fff;
-      }
-      .receipt-no,
-      .fee-table th {
-        color: #fff;
-      }
-      .label {
-        color: var(--d);
-      }
-      .fee-table td {
-        padding: 1.5rem 2rem;
-        text-align: center;
-        border: 2px solid var(--br);
-      }
-    </style>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Rubik:ital,wght@0,300..900;1,300..900&display=swap"
+      rel="stylesheet"
+    />
   </head>
-  <body>
-    <div class="yaxis-color" style="padding: 1.5rem"></div>
+  <body
+    style="
+      margin: 0 auto;
+      padding: 0;
+      display: flex;
+      flex-direction: column;
+      width: 210mm;
+      height: 100vh;
+      background: #fff;
+      font-family: rubik, sans-serif;
+      box-sizing: border-box;
+      -webkit-print-color-adjust: exact !important;
+      print-color-adjust: exact !important;
+    "
+  >
+    <div style="display: flex; justify-content: flex-end">
+      <svg
+        width="446"
+        height="95"
+        viewBox="0 0 446 95"
+        fill="none"
+        xmlns="http://www.w3.org/2000/svg"
+      >
+        <path d="M0 -14.3903H372.573V40H0V-14.3903Z" fill="#3692FC" />
+        <path d="M372.573 40H446V94.3902H372.573V40Z" fill="#C3DFFF" />
+        <path
+          d="M402.488 -7.59143H429.683V19.6037H402.488V-7.59143Z"
+          fill="#3692FC"
+        />
+        <path
+          d="M387.531 20.9634H401.128V34.5609H387.531V20.9634Z"
+          fill="#C3DFFF"
+        />
+        <path
+          d="M329.55 50.8831H351.888V71.9349H329.55V50.8831Z"
+          fill="#3692FC"
+        />
+        <path
+          d="M317.259 72.99H328.428V83.5159H317.259V72.99Z"
+          fill="#3692FC"
+        />
+        <path
+          d="M351.879 72.99H363.049V83.5159H351.879V72.99Z"
+          fill="#C3DFFF"
+        />
+        <path
+          d="M312.755 68.7728H300.504V57.2283H312.755V68.7728Z"
+          fill="#C3DFFF"
+        />
+        <path
+          d="M319.49 56.6517H313.364V50.8794H319.49V56.6517Z"
+          fill="#3692FC"
+        />
+      </svg>
+    </div>
     <div
-      class="content-wrapper"
       style="
         flex: 1;
         display: flex;
@@ -99,11 +84,6 @@
       "
     >
       <div
-        class="border-top-line"
-        style="margin: 2rem 0; border-bottom: 1px solid var(--o)"
-      ></div>
-      <div
-        class="header"
         style="
           display: flex;
           align-items: center;
@@ -112,67 +92,74 @@
         "
       >
         <img
-          class="logo"
           src="https://firebasestorage.googleapis.com/v0/b/tufeelive-new.appspot.com/o/6696%2Flogo_online.png?alt=media&token=690d2cf4-190a-4e4d-809d-d5b3edc75184"
           alt="TuFee"
-          style="width: 5.8rem; height: 5.8rem; border: 2px solid #f2cc1f"
+          style="width: 4rem; height: 4rem; border: 2px solid #f2cc1f"
         />
-        <div class="company-info" style="flex: 1">
+        <div style="flex: 1">
           <h1
-            class="company-name"
-            style="color: var(--d); margin-bottom: 8px; font-size: 2rem"
+            style="
+              color: #263449;
+              margin: 5px 0;
+              font-size: 1rem;
+              font-weight: 500;
+            "
           >
             TuFee
           </h1>
-          <div class="company-details" style="line-height: 1.5">
+          <div style="color: #6a7898; font-size: 0.8rem; line-height: 1.5">
             4140 Parker Rd. Allentown, New Mexico 31134
           </div>
-          <div class="company-details" style="line-height: 1.5">
+          <div style="color: #6a7898; font-size: 0.8rem; line-height: 1.5">
             (808) 555-0111
           </div>
         </div>
       </div>
 
-      <h2
-        style="
-          font-size: 2rem;
-          color: var(--g);
-          margin: 0 0 1rem;
-          font-weight: 500;
-        "
-      >
-        Fee Receipt
-      </h2>
-      <div
-        class="receipt-no"
-        style="
-          padding: 1rem 2rem;
-          border-top: 2px solid var(--d);
-          margin-bottom: 30px;
-          display: flex;
-          flex-direction: row;
-          justify-content: space-between;
-        "
-      >
-        <span style="font-weight: 500">Receipt No.: 0001</span>
-        <span style="font-weight: 500">Date: 25/01/2025</span>
+      <div style="display: flex; gap: 1rem; align-items: center">
+        <h2
+          style="
+            font-size: 2rem;
+            color: #3692fc;
+            margin: 0;
+            text-wrap: nowrap;
+            font-weight: 500;
+            text-transform: uppercase;
+          "
+        >
+          Fee Receipt
+        </h2>
+        <div
+          style="
+            min-height: 2rem;
+            width: 100%;
+            display: flex;
+            justify-content: flex-end;
+            align-items: center;
+            background: #3692fc;
+            color: #fff;
+            padding: 0 2rem 0 0;
+            font-weight: 500;
+            font-size: 1rem;
+          "
+        >
+          <span>Receipt No. 002</span>
+        </div>
       </div>
 
-      <div class="student-details" style="margin: 30px 0">
-        <div class="student-info-container" style="display: flex; gap: 15px">
+      <div style="margin: 42px 0">
+        <div style="display: flex; gap: 15px">
           <img
             src="https://firebasestorage.googleapis.com/v0/b/tufeelive-new.appspot.com/o/10044%2FStudentImage%2F1701174272172?alt=media&token=aeb11cb4-00c4-419e-9d69-8e2ebb748ee3"
             alt="Student Photo"
-            class="student-photo"
             style="
-              width: 6rem;
-              height: 6rem;
+              width: 5rem;
+              height: 5rem;
               border-radius: 50%;
               object-fit: cover;
             "
           />
           <div
-            class="info"
             style="
               width: 100%;
               display: flex;
@@ -180,70 +167,125 @@
               justify-content: space-between;
             "
           >
-            <div
-              style="
-                display: flex;
-                flex-direction: column;
-                justify-content: space-evenly;
-              "
-            >
-              <div class="info-group">
-                <span class="label">Name :</span>
-                <span class="value">Emma Grace</span>
+            <div style="display: flex; flex-direction: column; gap: 0.5rem">
+              <div>
+                <span
+                  style="color: #263449; font-size: 1.4rem; font-weight: 500"
+                  >Emma Grace</span
+                >
               </div>
-              <div class="info-group">
-                <span class="label">Roll No.:</span>
-                <span class="value">12</span>
+              <div>
+                <span style="color: #263449; font-weight: 500; font-size: 1rem"
+                  >Father Name:</span
+                >
+                <span style="color: #6a7898; font-size: 1rem"
+                  >Brooklyn Simmons</span
+                >
+              </div>
+              <div>
+                <span style="color: #263449; font-weight: 500; font-size: 1rem"
+                  >Batch:</span
+                >
+                <span style="color: #6a7898; font-size: 1rem"
+                  >9th Chem 2024-25</span
+                >
               </div>
             </div>
-            <div
-              style="
-                display: flex;
-                flex-direction: column;
-                justify-content: space-evenly;
-              "
-            >
-              <div class="info-group">
-                <span class="label">Father Name:</span>
-                <span class="value">1 Jun to 1 Aug</span>
+            <div style="display: flex; flex-direction: column; gap: 0.5rem">
+              <div>
+                <span style="color: #263449; font-weight: 500; font-size: 1rem"
+                  >Phone 1:</span
+                >
+                <span style="color: #6a7898; font-size: 1rem"
+                  >(505) 555-0125</span
+                >
               </div>
-              <div class="info-group">
-                <span class="label">Phone 1:</span>
-                <span class="value">(505) 555-0125</span>
+              <div>
+                <span style="color: #263449; font-weight: 500; font-size: 1rem"
+                  >Roll No.:</span
+                >
+                <span style="color: #6a7898; font-size: 1rem">12</span>
               </div>
             </div>
           </div>
         </div>
       </div>
 
-      <table
-        class="fee-table"
-        style="width: 100%; margin: 30px 0; border-collapse: collapse"
-      >
+      <table style="width: 100%; margin: 10px 0; border-collapse: collapse">
         <thead>
           <tr>
-            <th>Fee Header</th>
-            <th>Amount</th>
+            <th
+              style="
+                padding: 1rem 1.5rem;
+                border-inline: 2px solid #8790a7;
+                border-inline-end: 2px solid #fff;
+                background: #8790a7 !important;
+                color: #fff;
+                font-size: 1.2rem;
+                text-align: left;
+                font-weight: 500;
+                -webkit-print-color-adjust: exact !important;
+                print-color-adjust: exact !important;
+              "
+            >
+              Fee Header
+            </th>
+            <th
+              style="
+                padding: 1rem 1.5rem;
+                border-inline: 2px solid #8790a7;
+                background: #8790a7 !important;
+                color: #fff;
+                font-size: 1.2rem;
+                text-align: left;
+                font-weight: 500;
+                -webkit-print-color-adjust: exact !important;
+                print-color-adjust: exact !important;
+              "
+            >
+              Amount
+            </th>
           </tr>
         </thead>
         <tbody>
           <tr>
-            <td>9th Class 2024-25</td>
-            <td>₹25,000</td>
+            <td
+              style="
+                padding: 1rem 1.5rem;
+                border-inline: 2px solid #f0f0f0;
+                color: #6a7898;
+                font-size: 1rem;
+                font-weight: 500;
+              "
+            >
+              9th Class 2024-25
+            </td>
+            <td
+              style="
+                padding: 1rem 1.5rem;
+                border-inline: 2px solid #f0f0f0;
+                color: #6a7898;
+                font-size: 1rem;
+                font-weight: 500;
+              "
+            >
+              ₹25,000
+            </td>
           </tr>
         </tbody>
         <tfoot>
           <tr>
             <td
-              class="total"
               colspan="2"
               style="
                 text-align: center;
-                font-size: 1rem;
-                color: var(--d) !important;
-                background: var(--bg) !important;
-                padding: 1.5rem;
+                font-size: 1.2rem;
+                color: #263449 !important;
+                border-inline: 2px solid #eef0f3;
+                background: #eef0f3 !important;
+                padding: 1rem;
                 margin: 1.5rem 0;
+                font-weight: 500;
                 -webkit-print-color-adjust: exact !important;
                 print-color-adjust: exact !important;
               "
@@ -253,50 +295,60 @@
           </tr>
         </tfoot>
       </table>
-      <div
-        style="
-          display: flex;
-          flex-direction: row;
-          justify-content: space-between;
-        "
-      >
-        <div style="font-size: 0.9rem; color: var(--g)">
-          <p style="margin-bottom: 0.5rem">
-            <span style="font-weight: 500">Remark:</span>
-            Received Admission Fee
-          </p>
-          <p><span style="font-weight: 500">Payment Mode:</span> UPI</p>
-        </div>
-        <div
-          class="signature-section"
-          style="text-align: right; margin-top: 2rem"
-        >
-          <img
-            src="https://firebasestorage.googleapis.com/v0/b/tufeelive-new.appspot.com/o/6696%2Fsignature.png?alt=media&token=38dd6658-4a46-4e05-851c-4a6ae0858435"
-            alt="Digital Signature"
-            class="signature-img"
-            style="height: 3rem; margin-bottom: 0.5rem; margin-right: 1rem"
-          />
-          <p
-            class="signature-text"
-            style="font-size: 1.5rem; color: var(--d); margin-bottom: 1rem"
-          >
-            Signature
-          </p>
-        </div>
+
+      <div style="font-size: 0.9rem; color: #6a7898">
+        <p style="margin-bottom: 0.5rem">
+          <span style="font-weight: 500; color: #263449">Remark:</span>
+          Received Admission Fee
+        </p>
+        <p style="margin-bottom: 2rem">
+          <span style="font-weight: 500; color: #263449">Payment Mode:</span>
+          UPI
+        </p>
       </div>
 
-      <div
-        class="border-line"
-        style="margin-top: 1rem 0; border-bottom: 1px solid var(--o)"
-      ></div>
-      <p
-        class="date-time"
-        style="color: var(--g); font-size: 0.8rem; margin: 1rem 0"
-      >
-        20/02/2024 • 15:20
-      </p>
+      <div style="margin-top: auto; padding-bottom: 2rem">
+        <p
+          style="
+            color: #6a7898;
+            font-size: 0.8rem;
+            margin-bottom: 1.5rem;
+            position: relative;
+            bottom: -4rem;
+          "
+        >
+          20/02/2024 • 15:20
+        </p>
+
+        <div style="display: flex; align-items: flex-end; gap: 1rem">
+          <div
+            style="
+              min-height: 1.5rem;
+              width: 100%;
+              background: #3692fc !important;
+              -webkit-print-color-adjust: exact !important;
+              print-color-adjust: exact !important;
+            "
+          ></div>
+          <div style="text-align: right">
+            <img
+              src="https://firebasestorage.googleapis.com/v0/b/tufeelive-new.appspot.com/o/6696%2Fsignature.png?alt=media&token=38dd6658-4a46-4e05-851c-4a6ae0858435"
+              alt="Digital Signature"
+              style="height: 3rem; padding-right: 1rem"
+            />
+            <p
+              style="
+                font-size: 1rem;
+                color: #263449;
+                margin: 0;
+                text-wrap: nowrap;
+              "
+            >
+              Authorized Sign
+            </p>
+          </div>
+        </div>
+      </div>
     </div>
-    <div class="yaxis-color" style="padding: 1.5rem"></div>
   </body>
 </html>
