@@ -1,161 +1,81 @@
 <!DOCTYPE html>
-<html lang="en">
+<html
+  lang="en"
+  style="
+    padding: 0;
+    background: #fff;
+    -webkit-print-color-adjust: exact !important;
+    print-color-adjust: exact !important;
+  "
+>
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Due Fee Receipt</title>
-    <style>
-      @import url("https://fonts.googleapis.com/css2?family=Rubik:ital,wght@0,300..900;1,300..900&display=swap");
-      :root {
-        --b: #d1293d;
-        --o: #fca036;
-        --d: #263449;
-        --g: #6a7898;
-        --l: #64748b;
-        --br: #f0f0f0;
-        --bg: #eef0f3;
-      }
-      * {
-        margin: 0;
-        padding: 0;
-        box-sizing: border-box;
-        font-family: rubik, sans-serif;
-      }
-      @page {
-        size: A4;
-        margin: 0;
-      }
-      html,
-      body {
-        min-height: 100vh;
-        padding: 0;
-        background: #fff;
-        -webkit-print-color-adjust: exact !important;
-        print-color-adjust: exact !important;
-      }
-      body {
-        margin: 0 auto;
-        display: flex;
-        flex-direction: column;
-        width: 210mm;
-      }
-      .company-name,
-      .student-details h3,
-      .signature-text,
-      .label,
-      .fee-no,
-      .fee-table th,
-      .total {
-        font-weight: 500;
-      }
-      .company-details,
-      .value,
-      .label,
-      .fee-no,
-      .fee-table th {
-        font-size: 1.2rem;
-      }
-      .company-details,
-      .value,
-      .fee-table td {
-        color: var(--g);
-      }
-      .fee-no,
-      .fee-table th,
-      .yaxis-color {
-        background: var(--b) !important;
-        -webkit-print-color-adjust: exact !important;
-        print-color-adjust: exact !important;
-      }
-      .fee-table th {
-        padding: 1.2rem 1rem;
-        border: 2px solid #fff;
-      }
-      .fee-no,
-      .fee-table th {
-        color: #fff;
-      }
-      .label {
-        color: var(--d);
-      }
-      .fee-table td:not(:empty):not(.total) {
-        padding: 1rem;
-        text-align: left;
-        border: 2px solid var(--br);
-      }
-      .fee-table td:nth-child(3),
-      .fee-table td:nth-child(4) {
-        text-align: center;
-      }
-      .fee-table td[colspan="4"] {
-        background: #f8f9fa;
-        font-weight: 500;
-        border: none;
-      }
-      .fee-table td {
-        font-size: 1.1rem;
-      }
-      .fee-table th {
-        font-size: 1.2rem;
-      }
-      .fee-table th:nth-child(3),
-      .fee-table th:nth-child(4) {
-        text-align: center;
-      }
-      .fee-table tr:nth-child(even):not(:first-child) td {
-        background-color: #f6f6f6;
-      }
-      .fee-table tr:nth-child(odd) td {
-        background-color: #fff;
-      }
-      @media print {
-        body {
-          width: 100%;
-          margin: 0;
-          padding: 0;
-        }
-        .page-break {
-          page-break-before: always;
-        }
-        .fee-table {
-          page-break-inside: auto;
-          border-collapse: collapse;
-          width: 100%;
-        }
-        .fee-table tr {
-          page-break-inside: avoid;
-          page-break-after: auto;
-        }
-        .fee-table thead {
-          display: table-header-group;
-          break-inside: avoid;
-        }
-        .fee-table tfoot {
-          display: table-footer-group;
-        }
-        .fee-table th {
-          background-color: var(--b) !important;
-          color: white !important;
-          -webkit-print-color-adjust: exact !important;
-          print-color-adjust: exact !important;
-        }
-        .content-wrapper {
-          break-inside: auto;
-        }
-        .student-details,
-        .signature-section {
-          break-inside: avoid;
-        }
-        .total-fees {
-          break-inside: avoid;
-        }
-      }
-    </style>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Rubik:ital,wght@0,300..900;1,300..900&display=swap"
+      rel="stylesheet"
+    />
   </head>
-  <body>
-    <div class="yaxis-color" style="padding: 1.5rem"></div>
+  <body
+    style="
+      margin: 0 auto;
+      padding: 0;
+      display: flex;
+      flex-direction: column;
+      width: 210mm;
+      height: 100vh;
+      background: #fff;
+      font-family: rubik, sans-serif;
+      box-sizing: border-box;
+      -webkit-print-color-adjust: exact !important;
+      print-color-adjust: exact !important;
+    "
+  >
+    <div style="display: flex; justify-content: flex-end">
+      <svg
+        width="390"
+        height="95"
+        viewBox="0 0 390 95"
+        fill="none"
+        xmlns="http://www.w3.org/2000/svg"
+      >
+        <path d="M0.5 0H325.875V47.5H0.5V0Z" fill="#ED4055" />
+        <path
+          d="M325.875 47.5H390V95H325.875V47.5Z"
+          fill="#ED4055"
+          fill-opacity="0.5"
+        />
+        <path d="M352 5.9375H375.75V29.6875H352V5.9375Z" fill="#ED4055" />
+        <path
+          d="M338.938 30.875H350.812V42.75H338.938V30.875Z"
+          fill="#F6A0AA"
+        />
+        <path
+          d="M288.302 57.0043H307.811V75.3893H288.302V57.0043Z"
+          fill="#ED4055"
+        />
+        <path
+          d="M277.568 76.3108H287.322V85.5033H277.568V76.3108Z"
+          fill="#ED4055"
+        />
+        <path
+          d="M307.803 76.3108H317.557V85.5033H307.803V76.3108Z"
+          fill="#F6A0AA"
+        />
+        <path
+          d="M273.634 72.6278H262.936V62.5457H273.634V72.6278Z"
+          fill="#F6A0AA"
+        />
+        <path
+          d="M279.516 62.0422H274.167V57.0012H279.516V62.0422Z"
+          fill="#ED4055"
+        />
+      </svg>
+    </div>
     <div
-      class="content-wrapper"
       style="
         flex: 1;
         display: flex;
@@ -165,11 +85,6 @@
       "
     >
       <div
-        class="border-top-line"
-        style="margin: 2rem 0; border-bottom: 1px solid var(--o)"
-      ></div>
-      <div
-        class="header"
         style="
           display: flex;
           align-items: center;
@@ -178,63 +93,72 @@
         "
       >
         <img
-          class="logo"
           src="https://firebasestorage.googleapis.com/v0/b/tufeelive-new.appspot.com/o/6696%2Flogo_online.png?alt=media&token=690d2cf4-190a-4e4d-809d-d5b3edc75184"
           alt="TuFee"
-          style="width: 5.8rem; height: 5.8rem; border: 2px solid #f2cc1f"
+          style="width: 4rem; height: 4rem; border: 2px solid #f2cc1f"
         />
-        <div class="company-info" style="flex: 1">
+        <div style="flex: 1">
           <h1
-            class="company-name"
-            style="color: var(--d); margin-bottom: 8px; font-size: 2rem"
+            style="
+              color: #263449;
+              margin: 5px 0;
+              font-size: 1rem;
+              font-weight: 500;
+            "
           >
             TuFee
           </h1>
-          <div class="company-details" style="line-height: 1.5">
+          <div style="color: #6a7898; font-size: 0.8rem; line-height: 1.5">
             4140 Parker Rd. Allentown, New Mexico 31134
           </div>
-          <div class="company-details" style="line-height: 1.5">
+          <div style="color: #6a7898; font-size: 0.8rem; line-height: 1.5">
             (808) 555-0111
           </div>
         </div>
       </div>
 
-      <h2
-        style="
-          font-size: 2rem;
-          color: var(--g);
-          margin: 0 0 1rem;
-          font-weight: 500;
-        "
-      >
-        Due Fee
-      </h2>
-      <div
-        class="fee-no"
-        style="
-          padding: 1.5rem;
-          border-top: 2px solid var(--d);
-          display: flex;
-          flex-direction: row;
-          justify-content: space-between;
-        "
-      ></div>
+      <div style="display: flex; gap: 1rem; align-items: center">
+        <h2
+          style="
+            font-size: 2rem;
+            color: #d1293d;
+            margin: 0;
+            text-wrap: nowrap;
+            font-weight: 500;
+            text-transform: uppercase;
+          "
+        >
+          Due Fee Reminder
+        </h2>
+        <div
+          style="
+            min-height: 2rem;
+            width: 100%;
+            display: flex;
+            justify-content: flex-end;
+            align-items: center;
+            background: #f6a0aa;
+            color: #fff;
+            padding: 0 2rem 0 0;
+            font-weight: 500;
+            font-size: 1rem;
+          "
+        ></div>
+      </div>
 
-      <div class="student-details" style="margin: 3rem 0">
-        <div class="student-info-container" style="display: flex; gap: 15px">
+      <div style="margin: 42px 0">
+        <div style="display: flex; gap: 15px; align-items: center">
           <img
             src="https://firebasestorage.googleapis.com/v0/b/tufeelive-new.appspot.com/o/10044%2FStudentImage%2F1701174272172?alt=media&token=aeb11cb4-00c4-419e-9d69-8e2ebb748ee3"
             alt="Student Photo"
-            class="student-photo"
             style="
-              width: 6rem;
-              height: 6rem;
+              width: 5rem;
+              height: 5rem;
               border-radius: 50%;
               object-fit: cover;
             "
           />
           <div
-            class="info"
             style="
               width: 100%;
               display: flex;
@@ -242,142 +166,271 @@
               justify-content: space-between;
             "
           >
-            <div
-              style="
-                display: flex;
-                flex-direction: column;
-                justify-content: space-evenly;
-              "
-            >
-              <div class="info-group">
-                <span class="label">Name :</span>
-                <span class="value">Emma Grace</span>
+            <div style="display: flex; flex-direction: column; gap: 0.5rem">
+              <div>
+                <span
+                  style="color: #263449; font-size: 1.4rem; font-weight: 500"
+                  >Emma Grace</span
+                >
               </div>
-              <div class="info-group">
-                <span class="label">Roll No :</span>
-                <span class="value">12</span>
+              <div>
+                <span style="color: #263449; font-weight: 500; font-size: 1rem"
+                  >Father Name:</span
+                >
+                <span style="color: #6a7898; font-size: 1rem"
+                  >Brooklyn Simmons</span
+                >
               </div>
             </div>
-            <div
-              style="
-                display: flex;
-                flex-direction: column;
-                justify-content: space-evenly;
-              "
-            >
-              <div class="info-group">
-                <span class="label">Father Name :</span>
-                <span class="value">Brooklyn Simmons</span>
+            <div style="display: flex; flex-direction: column; gap: 0.5rem">
+              <div>
+                <span style="color: #263449; font-weight: 500; font-size: 1rem"
+                  >Phone 1:</span
+                >
+                <span style="color: #6a7898; font-size: 1rem"
+                  >(505) 555-0125</span
+                >
               </div>
-              <div class="info-group">
-                <span class="label">Phone 1 :</span>
-                <span class="value">(505) 555-0125</span>
+              <div>
+                <span style="color: #263449; font-weight: 500; font-size: 1rem"
+                  >Roll No.:</span
+                >
+                <span style="color: #6a7898; font-size: 1rem">12</span>
               </div>
             </div>
           </div>
         </div>
       </div>
-      <h3
-        style="
-          color: var(--d);
-          font-size: 1.1rem;
-          margin-bottom: 1rem;
-          font-weight: 500;
-        "
-      >
-        Due Fee Details
-      </h3>
+
       <table
-        class="fee-table"
-        style="width: 100%; border-collapse: collapse; text-wrap: nowrap"
+        style="
+          width: 100%;
+          margin: 10px 0;
+          border-collapse: collapse;
+          color: #6a7898;
+        "
       >
         <thead>
           <tr>
-            <th style="width: calc(100% - 20px - 20px)">
+            <th
+              style="
+                padding: 1rem 1.5rem;
+                background: #ed4055;
+                border-inline: 2px solid #ed4055;
+                border-inline-end: 2px solid #fff;
+                color: #fff;
+                font-size: 1rem;
+                text-align: left;
+                font-weight: 500;
+                -webkit-print-color-adjust: exact !important;
+                print-color-adjust: exact !important;
+              "
+            >
               Batch & Fee Category
             </th>
-            <th>Fee Type</th>
-            <th>Amount</th>
-            <th>Due Date</th>
+            <th
+              style="
+                padding: 1rem 1.5rem;
+                background: #ed4055;
+                border-inline: 2px solid #ed4055;
+                border-inline-end: 2px solid #fff;
+                color: #fff;
+                font-size: 1rem;
+                text-align: left;
+                font-weight: 500;
+                -webkit-print-color-adjust: exact !important;
+                print-color-adjust: exact !important;
+              "
+            >
+              Fee Type
+            </th>
+            <th
+              style="
+                padding: 1rem 1.5rem;
+                background: #ed4055;
+                border-inline: 2px solid #ed4055;
+                border-inline-end: 2px solid #fff;
+                color: #fff;
+                font-size: 1rem;
+                text-align: left;
+                font-weight: 500;
+                -webkit-print-color-adjust: exact !important;
+                print-color-adjust: exact !important;
+              "
+            >
+              Amount
+            </th>
+            <th
+              style="
+                padding: 1rem 1.5rem;
+                background: #ed4055;
+                border-inline: 2px solid #ed4055;
+                border-inline-end: 2px solid #fff;
+                color: #fff;
+                font-size: 1rem;
+                text-align: left;
+                font-weight: 500;
+                -webkit-print-color-adjust: exact !important;
+                print-color-adjust: exact !important;
+              "
+            >
+              Due Date
+            </th>
           </tr>
         </thead>
         <tbody>
-          <tr>
+          <tr style="background: #fff">
             <td
               colspan="4"
-              style="font-size: 1.2rem; text-align: left; padding-left: 1rem"
+              style="
+                padding: 1rem 1.5rem;
+                color: #6a7898;
+                font-size: 1.2rem;
+                font-weight: 500;
+                border-inline-end: 2px solid #fff;
+              "
             >
               12th Chem 2024-25
             </td>
           </tr>
-          <tr>
-            <td style="text-align: left; width: calc(100% - 20px - 20px)">
-              • Enrollment Fee
-            </td>
-            <td>One Time</td>
-            <td>₹500</td>
-            <td>01/05/2024</td>
-          </tr>
-          <tr>
-            <td style="text-align: left; width: calc(100% - 20px - 20px)">
-              • Course Fee
-            </td>
-            <td>Installment 1</td>
-            <td>₹1,500</td>
-            <td>01/05/2024</td>
-          </tr>
-          <tr>
-            <td style="text-align: left; width: calc(100% - 20px - 20px)">
-              • Complimentary Kit Charge
-            </td>
-            <td>Feb -2024</td>
-            <td>₹500</td>
-            <td>01/05/2024</td>
-          </tr>
-          <tr>
+          <tr style="background: #f8f9fa">
             <td
-              colspan="4"
-              style="font-size: 1.2rem; text-align: left; padding-left: 1rem"
+              style="
+                padding: 1rem 1.5rem;
+                color: #6a7898;
+                font-size: 1rem;
+                border-inline-end: 2px solid #fff;
+              "
             >
-              10th Class 2024-25
-            </td>
-          </tr>
-          <tr>
-            <td style="text-align: left; width: calc(100% - 20px - 20px)">
               • Enrollment Fee
             </td>
-            <td>One Time</td>
-            <td>₹500</td>
-            <td>01/05/2024</td>
+            <td
+              style="
+                padding: 1rem 1.5rem;
+                color: #6a7898;
+                font-size: 1rem;
+                border-inline-end: 2px solid #fff;
+              "
+            >
+              One Time
+            </td>
+            <td
+              style="
+                padding: 1rem 1.5rem;
+                color: #6a7898;
+                font-size: 1rem;
+                border-inline-end: 2px solid #fff;
+              "
+            >
+              ₹500
+            </td>
+            <td
+              style="
+                padding: 1rem 1.5rem;
+                color: #6a7898;
+                font-size: 1rem;
+                border-inline-end: 2px solid #fff;
+              "
+            >
+              01/05/2024
+            </td>
           </tr>
-          <tr>
-            <td style="text-align: left; width: calc(100% - 20px - 20px)">
+          <tr style="background: #fff">
+            <td
+              style="
+                padding: 1rem 1.5rem;
+                color: #6a7898;
+                font-size: 1rem;
+                border-inline-end: 2px solid #fff;
+              "
+            >
               • Course Fee
             </td>
-            <td>03/04/24 to 02/05/24</td>
-            <td>₹1,500</td>
-            <td>01/05/2024</td>
+            <td
+              style="
+                padding: 1rem 1.5rem;
+                color: #6a7898;
+                font-size: 1rem;
+                border-inline-end: 2px solid #fff;
+              "
+            >
+              Installment 1
+            </td>
+            <td
+              style="
+                padding: 1rem 1.5rem;
+                color: #6a7898;
+                font-size: 1rem;
+                border-inline-end: 2px solid #fff;
+              "
+            >
+              ₹1,500
+            </td>
+            <td
+              style="
+                padding: 1rem 1.5rem;
+                color: #6a7898;
+                font-size: 1rem;
+                border-inline-end: 2px solid #fff;
+              "
+            >
+              01/05/2024
+            </td>
           </tr>
-          <tr>
-            <td style="text-align: left; width: calc(100% - 20px - 20px)">
+          <tr style="background: #f8f9fa">
+            <td
+              style="
+                padding: 1rem 1.5rem;
+                color: #6a7898;
+                font-size: 1rem;
+                border-inline-end: 2px solid #fff;
+              "
+            >
               • Complimentary Kit Charge
             </td>
-            <td>03/01/24 to 02/04/24</td>
-            <td>₹500</td>
-            <td>01/05/2024</td>
+            <td
+              style="
+                padding: 1rem 1.5rem;
+                color: #6a7898;
+                font-size: 1rem;
+                border-inline-end: 2px solid #fff;
+              "
+            >
+              Feb -2024
+            </td>
+            <td
+              style="
+                padding: 1rem 1.5rem;
+                color: #6a7898;
+                font-size: 1rem;
+                border-inline-end: 2px solid #fff;
+              "
+            >
+              ₹500
+            </td>
+            <td
+              style="
+                padding: 1rem 1.5rem;
+                color: #6a7898;
+                font-size: 1rem;
+                border-inline-end: 2px solid #fff;
+              "
+            >
+              01/05/2024
+            </td>
           </tr>
         </tbody>
         <tfoot>
           <tr>
             <td
               colspan="4"
-              class="total"
               style="
                 text-align: center;
                 font-size: 1.2rem;
-                color: var(--d) !important;
-                padding: 1.5rem;
-                border: 2px solid var(--br);
+                color: #d1293d;
+                background: #fff2f4;
+                padding: 1rem;
+                font-weight: 500;
                 -webkit-print-color-adjust: exact !important;
                 print-color-adjust: exact !important;
               "
@@ -387,80 +440,29 @@
           </tr>
         </tfoot>
       </table>
-      <p style="margin-top: 1rem; color: var(--g)">
+      <p style="margin: 0; color: #6a7898; font-size: 0.8rem">
         Ensure all pending fees are paid by the due dates to avoid any late fees
       </p>
       <div
-        class="signature-section"
-        style="text-align: right; margin: 4rem 0 1rem 0"
-      >
-        <img
-          src="https://firebasestorage.googleapis.com/v0/b/tufeelive-new.appspot.com/o/6696%2Fsignature.png?alt=media&token=38dd6658-4a46-4e05-851c-4a6ae0858435"
-          alt="Digital Signature"
-          class="signature-img"
-          style="height: 3rem; margin-bottom: 0.5rem; margin-right: 1rem"
-        />
-        <p
-          class="signature-text"
-          style="font-size: 1.5rem; color: var(--d); margin-bottom: 1rem"
-        >
-          Signature
-        </p>
-      </div>
-      <div
         style="
           display: flex;
-          justify-content: space-between;
           align-items: flex-end;
-          margin: 2rem 0 2rem;
+          justify-content: space-between;
+          margin-top: 2rem;
         "
       >
-        <div style="display: flex; flex-direction: column; align-items: center">
-          <div
-            style="
-              display: flex;
-              flex-direction: column;
-              align-items: center;
-              gap: 0.5rem;
-            "
-          >
-            <img
-              src="https://firebasestorage.googleapis.com/v0/b/tufeelive-new.appspot.com/o/6696%2Fqr_sample.png?alt=media&token=3303c9eb-8a48-4d08-aa67-e1fd606cdde0"
-              alt="qr"
-              style="height: 7rem; width: 7rem"
-            />
-            <p style="font-size: 1rem; color: var(--g)">Jenimshah@okaxis</p>
-          </div>
-          <p style="color: var(--d); font-size: 0.8rem; margin-top: 1rem">
-            Scan and Pay with any BHIM UPI app
-          </p>
-        </div>
         <div>
-          <h3 style="font-weight: 400; font-size: 1rem; margin: 0.8rem 0">
-            Bank Details
+          <h3 style="font-weight: 500; font-size: 1rem; margin: 1rem 0 0">
+            Payment Info
           </h3>
           <div style="display: flex; gap: 1rem; font-size: 1rem">
-            <div
-              style="
-                color: var(--g);
-                display: flex;
-                flex-direction: column;
-                gap: 0.5rem;
-              "
-            >
+            <div style="color: #6a7898">
               <p>Account Holder Name:</p>
               <p>Account Number:</p>
               <p>IFSC Code:</p>
               <p>Branch:</p>
             </div>
-            <div
-              style="
-                color: var(--d);
-                display: flex;
-                flex-direction: column;
-                gap: 0.5rem;
-              "
-            >
+            <div style="color: #263449">
               <p>Tufee Institute</p>
               <p>1234567890</p>
               <p>XYZ0001233</p>
@@ -468,18 +470,66 @@
             </div>
           </div>
         </div>
+        <div style="text-align: center">
+          <img
+            src="https://firebasestorage.googleapis.com/v0/b/tufeelive-new.appspot.com/o/6696%2Fqr_sample.png?alt=media&token=3303c9eb-8a48-4d08-aa67-e1fd606cdde0"
+            alt="qr"
+            style="height: 6rem; width: 6rem"
+          />
+          <p style="font-size: 1rem; color: #6a7898; margin: 0.5rem 0">
+            Jenimshah@okaxis
+          </p>
+          <p style="color: #263449; font-size: 0.8rem">
+            Scan and Pay with any BHIM UPI app
+          </p>
+        </div>
       </div>
       <div
         class="border-line"
         style="margin-top: 1rem 0; border-bottom: 1px solid var(--o)"
       ></div>
-      <p
-        class="date-time"
-        style="color: var(--g); font-size: 0.8rem; margin: 1rem 0"
-      >
-        20/02/2024 • 15:20
-      </p>
+      <div>
+        <p
+          style="
+            color: #6a7898;
+            font-size: 0.8rem;
+            margin-bottom: 1.5rem;
+            position: relative;
+            bottom: -4.5rem;
+          "
+        >
+          20/02/2024 • 15:20
+        </p>
+
+        <div style="display: flex; align-items: flex-end; gap: 1rem">
+          <div
+            style="
+              min-height: 1rem;
+              width: 100%;
+              background: #f6a0aa !important;
+              -webkit-print-color-adjust: exact !important;
+              print-color-adjust: exact !important;
+            "
+          ></div>
+          <div style="text-align: right">
+            <img
+              src="https://firebasestorage.googleapis.com/v0/b/tufeelive-new.appspot.com/o/6696%2Fsignature.png?alt=media&token=38dd6658-4a46-4e05-851c-4a6ae0858435"
+              alt="Digital Signature"
+              style="height: 3rem; padding-right: 1rem"
+            />
+            <p
+              style="
+                font-size: 1rem;
+                color: #263449;
+                margin: 0;
+                text-wrap: nowrap;
+              "
+            >
+              Authorized Sign
+            </p>
+          </div>
+        </div>
+      </div>
     </div>
-    <div class="yaxis-color" style="padding: 1.5rem"></div>
   </body>
 </html>
